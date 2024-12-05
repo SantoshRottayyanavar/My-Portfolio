@@ -44,7 +44,7 @@ if choice == "Home":
     into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar,</h2>", unsafe_allow_html=True)
     into.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
 
-    image.image("D:\Streamlit\env\Santosh Photo.png")
+    image.image("Santosh Photo.png")
     st.write("")
     st.write("---") 
     st.write("")
@@ -86,23 +86,23 @@ elif choice == "About":
         with col1:
             panel = st.container(height=560, border=True)
             with panel:
-                st.image("D:\Streamlit\env\IBM_Certification.jpg", caption="Data Visualization")
+                st.image("IBM_Certification.jpg", caption="Data Visualization")
         
         with col2:
             panel = st.container(height=780, border=True)
             with panel:
-                st.image("D:\Streamlit\env\MeriSKILL.jpg", caption="Data Analyst")
+                st.image("MeriSKILL.jpg", caption="Data Analyst")
         
         col3, col4 = st.columns(2)
         with col3:
             panel = st.container(height=780, border=True)
             with panel:
-                st.image("D:\Streamlit\env\AI Variant.jpg", caption="Data Analytics")
+                st.image("AI Variant.jpg", caption="Data Analytics")
 
         with col4:
             panel = st.container(height=780, border=True)   
             with panel:
-                st.image("D:\Streamlit\env\Excelr.jpg", caption="Data Analyst Certification")     
+                st.image("Excelr.jpg", caption="Data Analyst Certification")     
      
       with st.expander("Education"):
           st.markdown("#### :book: Education")
@@ -124,35 +124,35 @@ elif choice == "Experience":
      
      if select == "Bank Loan Analysis":
         one, two = st.columns([1,1])
-        one.image("D:\Streamlit\env\Bank Loan Applications.png")
-        two.image("D:\Streamlit\env\Bank Loan Defaulters.png")
+        one.image("Bank Loan Applications.png")
+        two.image("Bank Loan Defaulters.png")
         three, four = st.columns([1,1])
-        three.image("D:\Streamlit\env\Bank Loan repayers.png")
-        four.image("D:\Streamlit\env\Bank Loan credit, good price and income correlations.png")
+        three.image("Bank Loan repayers.png")
+        four.image("Bank Loan credit, good price and income correlations.png")
         five, six = st.columns([1,1])
-        five.image("D:\Streamlit\env\Bank Loan Comprehensive financial overview.png")
-        six.image("D:\Streamlit\env\Bank Loan Comprehensive financial overview2.png")
+        five.image("Bank Loan Comprehensive financial overview.png")
+        six.image("Bank Loan Comprehensive financial overview2.png")
         seven, eight = st.columns([1,1])
-        seven.image("D:\Streamlit\env\Bank Loan Privious application status based on applicants.png")
+        seven.image("Bank Loan Privious application status based on applicants.png")
 
      elif select == "HR Analysis":
         a1,b1 = st.columns(2)
-        a1.image("D:\Streamlit\env\HRmain.jpg")
+        a1.image("HRmain.jpg")
 
         one, two = st.columns([1,1])
-        one.image("D:\Streamlit\env\HR1 Employee_distribution.jpg")
-        two.image("D:\Streamlit\env\HR2Employee Avg Monthly Hrs and satisfaction.jpg")
+        one.image("HR1 Employee_distribution.jpg")
+        two.image("HR2Employee Avg Monthly Hrs and satisfaction.jpg")
         
         three, four = st.columns([1,1])
-        three.image("D:\Streamlit\env\HR3 Employees Precence.jpg")
-        four.image("D:\Streamlit\env\HR4 Turnover Rate.jpg")
+        three.image("HR3 Employees Precence.jpg")
+        four.image("HR4 Turnover Rate.jpg")
         
         five, six = st.columns([1,1])
-        five.image("D:\Streamlit\env\HR5 Workplace Accident.jpg")
-        six.image("D:\Streamlit\env\HR6 Promotion.jpg")
+        five.image("HR5 Workplace Accident.jpg")
+        six.image("HR6 Promotion.jpg")
 
 elif choice == "Resume":
-    with open("D:\Streamlit\env\Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
+    with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
         st.download_button(
             label="Download Resume",
             data=file,
