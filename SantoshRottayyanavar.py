@@ -173,8 +173,8 @@ elif choice == "Contact":
     st.write("---")
 
 
-files = st.file_uploader("Upload a file", type=['docx', 'pdf'],accept_multiple_files=True)
-if files is not None:
- for file in files:
-   with open(file, "r") as file:
-    pdf_viewer(file) 
+    files = st.file_uploader("Upload a file", type=['docx', 'pdf'],accept_multiple_files=True)
+    if files is not None:
+     for file in files:
+      with open(file, "r") as file:
+        pdf_viewer(file) 
