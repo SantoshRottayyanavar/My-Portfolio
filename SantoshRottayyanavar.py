@@ -62,7 +62,7 @@ if choice == "Home":
     into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar </h2>", unsafe_allow_html=True)
     into.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
 
-    image.image("SantoshR Photo.png")
+    image.image("Santosh R.jpeg")
     st.write("")
     st.write("---") 
     st.write("")
