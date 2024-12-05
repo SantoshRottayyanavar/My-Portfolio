@@ -84,7 +84,7 @@ elif choice == "About":
       with st.expander("Certifications"):
         col1, col2 = st.columns(2)
         with col1:
-            panel = st.container(height=560, border=True)
+            panel = st.container(height=580, border=True)
             with panel:
                 st.image("IBM_Certification.jpg", caption="Data Visualization")
         
