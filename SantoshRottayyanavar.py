@@ -4,6 +4,24 @@ from streamlit_pdf_viewer import pdf_viewer
 
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
+page_bg_image = """
+<style>
+[data-testid="stAppViewContainer"] {
+background-image: url("https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg?t=st=1733391602~exp=1733395202~hmac=c4cd328b8d7b8432c36f96c17ac394b9acd385ffa6946b2c74839a5657108ae5&w=1060");
+background-size: cover; 
+}          
+
+[data-testid="stHeader"] {
+background-color: rgba(0, 0, 0, 0);
+}
+</style>"""
+
+st.markdown(page_bg_image, unsafe_allow_html=True)
+
+
+
+
+
 #Removing Hamburger/Deploy option in web app
 st.markdown("""
 <style>
@@ -40,8 +58,8 @@ st.write("---")
 if choice == "Home":    
     st.write("")
     into, image = st.columns([10,4])
-    into.markdown("<H2 style = 'text-align: center;'>Hi,</h2>", unsafe_allow_html=True)
-    into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar,</h2>", unsafe_allow_html=True)
+    into.markdown("<H2 style = 'text-align: center;'>Hi, </h2>", unsafe_allow_html=True)
+    into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar </h2>", unsafe_allow_html=True)
     into.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
 
     image.image("Santosh Photo.png")
@@ -169,12 +187,7 @@ elif choice == "Contact":
     col1, col2, col3 = st.columns(3)
     col1.markdown(":email: Mail: santoshrottayyanavar81@gmail.com")
     col2.markdown(":chains: [my LinkedIn](https://www.linkedin.com/in/santosh-rottayyanavar-/)")
-    col3.markdown(":gsmile_cat: [My Github](https://github.com/SantoshRottayyanavar)")
+    col3.markdown(":smile_cat: [My Github](https://github.com/SantoshRottayyanavar)")
     st.write("---")
 
 
-    files = st.file_uploader("Upload a file", type=['docx', 'pdf'],accept_multiple_files=True)
-    if files is not None:
-     for file in files:
-      with open(file, "r") as file:
-        pdf_viewer(file) 
