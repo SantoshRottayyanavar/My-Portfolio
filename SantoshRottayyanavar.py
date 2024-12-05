@@ -7,7 +7,7 @@ st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="
 page_bg_image = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-image: url("https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg?t=st=1733391602~exp=1733395202~hmac=c4cd328b8d7b8432c36f96c17ac394b9acd385ffa6946b2c74839a5657108ae5&w=1060");
+background-image: url("https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?t=st=1733399460~exp=1733403060~hmac=2f4ef4a8fa6c620706ad689fb0a775e3de7ed37136519bf8f5e8affd85f978c5&w=1060");
 background-size: cover; 
 }          
 
