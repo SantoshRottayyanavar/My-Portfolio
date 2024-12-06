@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_pdf_viewer import pdf_viewer
+import pandas as pd
 
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
@@ -138,7 +139,7 @@ elif choice == "About":
 
 elif choice == "Experience":
      st.write("")
-     select = st.selectbox("Internships", ["Bank Loan Analysis", "HR Analysis", "Sales Analysis"])   
+     select = st.selectbox("Internships", ["Bank Loan Analysis", "HR Data Analysis", "Sales Analysis"])   
      
      if select == "Bank Loan Analysis":
         one, two = st.columns([1,1])
@@ -152,8 +153,9 @@ elif choice == "Experience":
         six.image("Bank Loan Comprehensive financial overview2.png")
         seven, eight = st.columns([1,1])
         seven.image("Bank Loan Privious application status based on applicants.png")
+        st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
 
-     elif select == "HR Analysis":
+     elif select == "HR Data Analysis":
         a1,b1 = st.columns(2)
         a1.image("HRmain.jpg")
 
@@ -168,6 +170,7 @@ elif choice == "Experience":
         five, six = st.columns([1,1])
         five.image("HR5 Workplace Accident.jpg")
         six.image("HR6 Promotion.jpg")
+        st.markdown(":people: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
 
 elif choice == "Resume":
     with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
@@ -189,5 +192,30 @@ elif choice == "Contact":
     col2.markdown(":chains: [my LinkedIn](https://www.linkedin.com/in/santosh-rottayyanavar-/)")
     col3.markdown(":smile_cat: [My Github](https://github.com/SantoshRottayyanavar)")
     st.write("---")
+
+    st.markdown("### :postbox: Message Box")
+    st.write("write to me for any collaborations / Suggestions to improve")
+    if "feedback" not in st.session_state or "feedback" in st.session_state:
+        try:
+            st.session_state.feedback = pd.read_csv("Portfolio Feedback.csv")
+        except:
+            st.session_state.feedback = pd.DataFrame(["Name", "Email", "Message"])
+
+        with st.form("Feedback", clear_on_submit=True):
+            fd_n = st.text_input("Name")
+            fd_e = st.text_input("Email")
+            fd_m = st.text_area("Message")
+
+            col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+            fdbtn = col8.form_submit_button("Send")
+
+            if fdbtn:
+                if not all([fd_n, fd_e, fd_m]):
+                    st.warning("Please fill all the above feilds")
+                else:
+                    new_entry_fd = [{"Name": fd_n, "Email": fd_e, "Message": fd_m}]
+                    st.session_state.feedback = pd.concat([st.session_state.feedback, pd.DataFrame(new_entry_fd)], ignore_index = True)
+                    st.session_state.feedback.to_csv("Portfolio Feedback.csv", index=False) 
+                    st.success(f"Thank you {fd_n}, for your time, i'll get back to you. if any!")
 
 
