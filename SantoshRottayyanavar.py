@@ -2,14 +2,17 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_pdf_viewer import pdf_viewer
 import pandas as pd
+from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
 page_bg_image = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-image: url("https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?t=st=1733399460~exp=1733403060~hmac=2f4ef4a8fa6c620706ad689fb0a775e3de7ed37136519bf8f5e8affd85f978c5&w=1060");
-background-size: cover; 
+background-image: url("https://img.freepik.com/free-vector/white-minimal-hexagons-background_79603-1452.jpg?t=st=1733745689~exp=1733749289~hmac=58b85eefa7b4ed3754eb11caaad3018ed4a5024668851ecb3c37d02133c30656&w=1380");
+background-size: cover;
+Abackground-color: #ffffff10;
+backdrop-filter: blur(50px); 
 }          
 
 [data-testid="stHeader"] {
@@ -45,7 +48,7 @@ with col1:
 with col2:
   choice = option_menu(
      menu_title = None,
-     options = ["Home", "About", "Experience", "Resume", "Contact"],
+     options = ["Home", "About", "Experience ", "Resume", "Contact"],
      icons= ["house-door", "search-heart-fill", "file-person", "pencil-square", "telephone-outbound-fill"],
      menu_icon = "cast",
      default_index=0,
@@ -63,7 +66,7 @@ if choice == "Home":
     into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar </h2>", unsafe_allow_html=True)
     into.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
 
-    image.image("Santosh R.jpeg")
+    image.image("Santosh Photo.png")
     st.write("")
     st.write("---") 
     st.write("")
@@ -139,11 +142,35 @@ elif choice == "About":
 
 elif choice == "Experience":
      st.write("")
-     select = st.selectbox("Internships", ["Bank Loan Analysis", "HR Data Analysis", "Sales Analysis"])   
+     with st.expander("Bank Loan Analysis"):
      
-     if select == "Bank Loan Analysis":
+    
         one, two = st.columns([1,1])
-        one.image("Bank Loan Applications.png")
+        one.markdown("""Dashboard 1, Bank Loan Applications:
+Bank Loan Applications Report
+This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
+situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
+across these categories.
+1. Loan Types and Repayment Trends:
+• 90.48% of applicants prefer cash loans over revolving loans, showing a clear preference for liquidity.
+• 91.93% of applicants successfully repaid their loans, demonstrating strong financial discipline, while only 8.07% 
+defaulted.
+2. Gender Distribution: 65.83% of loan applicants are female, showing that women dominate the applicant pool.
+3. Age Distribution: The largest applicant groups are aged 30-40 (26.77%) and 40-50 (24.89%), indicating that people in their 
+prime working years are the main borrowers.
+4. Housing Situation: 88.72% of applicants own their homes, reflecting strong financial stability and asset ownership among loan 
+seekers.
+5.Family Status: The majority of applicants are married (63.88%), indicating that family stability may play a significant role in 
+loan applications, followed by single (14.77%) and civil marriage (9.68%) statuses.
+6. Employment Tenure: 44.32% of applicants have less than 5 years of employment, with over 83% having under 10 years, 
+showing that early-career professionals make up a large portion of borrowers.
+7. Employment Status: 51.63% of applicants are employed, with 23.28% being commercial associates, representing a workforce 
+with diverse job roles.
+8. Education Level: 70.99% of applicants have a secondary education, with very few holding academic degrees, indicating a gap 
+in higher education among the applicant pool.
+9. Occupation Types: Laborers form the largest group of applicants, followed by sales and core staff, showing that manual and 
+service-related occupations are prominent among borrowers.
+10. Organization Types: The largest applicant group works for Business Entity Type 3, with a significant number being self  employed, reflecting diverse employment structures among loan applicants""")
         two.image("Bank Loan Defaulters.png")
         three, four = st.columns([1,1])
         three.image("Bank Loan repayers.png")
@@ -155,7 +182,7 @@ elif choice == "Experience":
         seven.image("Bank Loan Privious application status based on applicants.png")
         st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
 
-     elif select == "HR Data Analysis":
+     with st.expander("HR Data Analysis"):
         a1,b1 = st.columns(2)
         a1.image("HRmain.jpg")
 
@@ -193,29 +220,37 @@ elif choice == "Contact":
     col3.markdown(":smile_cat: [My Github](https://github.com/SantoshRottayyanavar)")
     st.write("---")
 
+    #Contact form
     st.markdown("### :postbox: Message Box")
     st.write("write to me for any collaborations / Suggestions to improve")
-    if "feedback" not in st.session_state or "feedback" in st.session_state:
-        try:
-            st.session_state.feedback = pd.read_csv("Portfolio Feedback.csv")
-        except:
-            st.session_state.feedback = pd.DataFrame(["Name", "Email", "Message"])
+    
+     # google sheets connection
+    if 'conn' not in st.session_state:
+        st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
 
-        with st.form("Feedback", clear_on_submit=True):
-            fd_n = st.text_input("Name")
-            fd_e = st.text_input("Email")
-            fd_m = st.text_area("Message")
+    if "Message_df" not in st.session_state:
+       st.session_state.Message_df = st.session_state.conn.read(spreadsheet="https://docs.google.com/spreadsheets/d/14dOIY5ZtGy2hX0fOQ30GY0ZdSHf9HRVKBJuuD4-KpZY/edit?gid=0#gid=0", worksheet="Feedback")
 
-            col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-            fdbtn = col8.form_submit_button("Send")
+    if "msg_df" not in st.session_state:
+       st.session_state.msg_df = pd.DataFrame()
 
-            if fdbtn:
-                if not all([fd_n, fd_e, fd_m]):
-                    st.warning("Please fill all the above feilds")
-                else:
-                    new_entry_fd = [{"Name": fd_n, "Email": fd_e, "Message": fd_m}]
-                    st.session_state.feedback = pd.concat([st.session_state.feedback, pd.DataFrame(new_entry_fd)], ignore_index = True)
-                    st.session_state.feedback.to_csv("Portfolio Feedback.csv", index=False) 
-                    st.success(f"Thank you {fd_n}, for your time, i'll get back to you. if any!")
+    with st.form(key="contact_form", clear_on_submit=True):
+        name = st.text_input("Name")
+        email = st.text_input("Email")
+        text = st.text_area("Message")
+        col1, col2, col3, col4 = st.columns(4)
+        submit_button = col4.form_submit_button("Send")
 
-
+        if submit_button:
+            if (name == "") or (email == "") or (text == ""):
+                st.error("Please fill all the fields")
+            else:
+                st.success(f"Thank you, {name}! I'll get back to you soon if any.")
+                
+                message = [{"Name": name,
+                            "Mail ID": email,
+                            "Message": text}]
+                
+                st.session_state.msg_df = pd.DataFrame(message)
+                st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
+                st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
