@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_pdf_viewer import pdf_viewer
 import pandas as pd
-from streamlit_gsheets import GSheetsConnection
+#from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
@@ -48,7 +48,7 @@ with col1:
 with col2:
   choice = option_menu(
      menu_title = None,
-     options = ["Home", "About", "Experience ", "Resume", "Contact"],
+     options = ["Home", "About", "Experience", "Resume", "Contact"],
      icons= ["house-door", "search-heart-fill", "file-person", "pencil-square", "telephone-outbound-fill"],
      menu_icon = "cast",
      default_index=0,
@@ -224,33 +224,33 @@ elif choice == "Contact":
     st.markdown("### :postbox: Message Box")
     st.write("write to me for any collaborations / Suggestions to improve")
     
-     # google sheets connection
-    if 'conn' not in st.session_state:
-        st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+    #  # google sheets connection
+    # if 'conn' not in st.session_state:
+    #     st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
 
-    if "Message_df" not in st.session_state:
-       st.session_state.Message_df = st.session_state.conn.read(spreadsheet="https://docs.google.com/spreadsheets/d/14dOIY5ZtGy2hX0fOQ30GY0ZdSHf9HRVKBJuuD4-KpZY/edit?gid=0#gid=0", worksheet="Feedback")
+    # if "Message_df" not in st.session_state:
+    #    st.session_state.Message_df = st.session_state.conn.read(spreadsheet="https://docs.google.com/spreadsheets/d/14dOIY5ZtGy2hX0fOQ30GY0ZdSHf9HRVKBJuuD4-KpZY/edit?gid=0#gid=0", worksheet="Feedback")
 
-    if "msg_df" not in st.session_state:
-       st.session_state.msg_df = pd.DataFrame()
+    # if "msg_df" not in st.session_state:
+    #    st.session_state.msg_df = pd.DataFrame()
 
-    with st.form(key="contact_form", clear_on_submit=True):
-        name = st.text_input("Name")
-        email = st.text_input("Email")
-        text = st.text_area("Message")
-        col1, col2, col3, col4 = st.columns(4)
-        submit_button = col4.form_submit_button("Send")
+    # with st.form(key="contact_form", clear_on_submit=True):
+    #     name = st.text_input("Name")
+    #     email = st.text_input("Email")
+    #     text = st.text_area("Message")
+    #     col1, col2, col3, col4 = st.columns(4)
+    #     submit_button = col4.form_submit_button("Send")
 
-        if submit_button:
-            if (name == "") or (email == "") or (text == ""):
-                st.error("Please fill all the fields")
-            else:
-                st.success(f"Thank you, {name}! I'll get back to you soon if any.")
+    #     if submit_button:
+    #         if not (name == "") or (email == "") or (text == ""):
+    #             st.error("Please fill all the fields")
+    #         else:
+    #             st.success(f"Thank you, {name}! I'll get back to you soon if any.")
                 
-                message = [{"Name": name,
-                            "Mail ID": email,
-                            "Message": text}]
+    #             message = [{"Name": name,
+    #                         "Mail ID": email,
+    #                         "Message": text}]
                 
-                st.session_state.msg_df = pd.DataFrame(message)
-                st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
-                st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+    #             st.session_state.msg_df = pd.DataFrame(message)
+    #             st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
+    #             st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
