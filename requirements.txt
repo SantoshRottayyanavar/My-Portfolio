@@ -2,3 +2,4 @@ streamlit
 streamlit-option-menu
 streamlit-pdf-viewer
 pandas
+st-gsheets-connection 
