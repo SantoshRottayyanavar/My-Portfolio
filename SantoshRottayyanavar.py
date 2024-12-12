@@ -2,14 +2,15 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_pdf_viewer import pdf_viewer
 import pandas as pd
-#from streamlit_gsheets import GSheetsConnection
+from st_social_media_links import SocialMediaIcons
+from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
 page_bg_image = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-image: url("https://img.freepik.com/free-vector/white-minimal-hexagons-background_79603-1452.jpg?t=st=1733745689~exp=1733749289~hmac=58b85eefa7b4ed3754eb11caaad3018ed4a5024668851ecb3c37d02133c30656&w=1380");
+background-image: url("https://img.freepik.com/free-vector/minimalist-background-with-geometric-shapes_91008-271.jpg?t=st=1733761857~exp=1733765457~hmac=087815752da786420a0a523482f57106ee3483a8f048307f115291b5732332e2&w=1380");
 background-size: cover;
 Abackground-color: #ffffff10;
 backdrop-filter: blur(50px); 
@@ -53,11 +54,7 @@ with col2:
      menu_icon = "cast",
      default_index=0,
      orientation="horizontal")  
-st.write("---")  
-
-# name, first, second, third, fourth, fifth = st.columns([3,1,1,1,1,1])
-# name.title("Santosh")
-#   
+st.write("---")   
      
 if choice == "Home":    
     st.write("")
@@ -71,24 +68,30 @@ if choice == "Home":
     st.write("---") 
     st.write("")
 
-    collect, stats, process = st.columns(3)
+    collect, clean, explore, modelling   = st.columns(4)
     
     collect.markdown("#### :basket: Collect")
-    collect.write("A Data Analyst collects, cleans, and organizes raw data from various sources to uncover patterns and trends. They use tools like SQL, Python, Excel, or Tableau to process and visualize data. Analysts interpret insights to support decision-making and improve business strategies. They ensure data accuracy and create reports for stakeholders.")
+    collect.write("Data collection is my systematic approach to gathering information from various sources to create a comprehensive dataset for analysis and informed decision-making.")
     
-    stats.markdown("#### :1234: Stats")
-    stats.write("A Data Analyst uses statistics to summarize data with measures like mean and standard deviation. They perform hypothesis testing to validate assumptions and explore relationships. Regression models are used to predict outcomes and identify key factors. Probability analysis helps estimate risks and forecast trends for decision-making.")
-    
-    process.markdown("#### :white_check_mark: Process")
-    process.write("A Data Analyst processes raw data by collecting it from various sources and cleaning it to ensure accuracy and quality. They analyze the data using tools like SQL, Python, or Excel to uncover trends and patterns. Visualization tools like Power BI or Tableau are used to create interactive dashboards and reports. The insights are then shared with stakeholders to support data-driven decisions.")
-    
-    modelling, visualize = st.columns(2)
+    clean.markdown("#### :broom: clean")
+    clean.write("Data cleaning is my process of identifying and correcting errors and inconsistencies in datasets to ensure their accuracy and reliability for analysis.")
+
+    explore.markdown("#### :telescope: Explore")
+    explore.write("Data exploration is an essential part of my workflow, where I analyze and visualize datasets to understand their structure, patterns, and relationships, guiding further analysis.")
     
     modelling.markdown("#### :snowflake: Modelling")
-    modelling.write("Modeling a fact and dimension involves creating a fact table that contains measurable data, such as sales revenue, along with foreign keys linking to related dimension tables. Dimension tables provide descriptive attributes, like customer information or product details, enhancing the context of the data. Relationships are established to ensure that each dimension is connected to the fact table, typically in a star or snowflake schema. This structure facilitates efficient querying and analysis of business metrics.")
+    modelling.write("Data modeling is my process of creating a conceptual representation of data structures and relationships, defining data types and interactions, and establishing rules to organize data effectively for analysis and efficient querying in databases.")
+
+    visualize, interpretation, report  = st.columns(3)
     
     visualize.markdown("#### :bar_chart: Visualize")
-    visualize.write("Data visualization is the graphical representation of data that helps communicate insights clearly and effectively. It includes various types, such as bar charts, line graphs, and dashboards, tailored to highlight trends and patterns. Tools like Tableau, Power BI, and Matplotlib enable the creation of interactive visuals. Effective visualizations use best practices to enhance comprehension and support data-driven decision-making.")
+    visualize.write("Data visualization involves my creation of visual formats, such as charts and dashboards, to represent data and communicate insights clearly, making complex information more accessible for decision-making.")
+
+    interpretation.markdown("#### :brain: Interpretation")
+    interpretation.write("Data interpretation is my process of analyzing and making sense of data to draw meaningful conclusions and translate findings into actionable insights for decision-making.")
+    
+    report.markdown("#### :bookmark_tabs: Report")
+    report.write("Reporting is my process of organizing and presenting data and analysis results in a structured format to communicate insights and recommendations effectively to stakeholders.")
 
     st.write("")
     st.write("---") 
@@ -142,46 +145,69 @@ elif choice == "About":
 
 elif choice == "Experience":
      st.write("")
+     st.markdown("##### Internships")
+     st.markdown("###### Company Name: AI Variant")
+     st.write("AI Variant is an analytics firm, provides best-in-class products and solutions.It has deep analytics expertise as well as domain expertise in various industries. It's employees extremely passionate about taking on challenges that matter to the clients.")
+     st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
+     st.markdown("###### Projects:")
      with st.expander("Bank Loan Analysis"):
-     
-    
         one, two = st.columns([1,1])
-        one.markdown("""Dashboard 1, Bank Loan Applications:
-Bank Loan Applications Report
-This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
-situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
-across these categories.
-1. Loan Types and Repayment Trends:
-• 90.48% of applicants prefer cash loans over revolving loans, showing a clear preference for liquidity.
-• 91.93% of applicants successfully repaid their loans, demonstrating strong financial discipline, while only 8.07% 
-defaulted.
-2. Gender Distribution: 65.83% of loan applicants are female, showing that women dominate the applicant pool.
-3. Age Distribution: The largest applicant groups are aged 30-40 (26.77%) and 40-50 (24.89%), indicating that people in their 
-prime working years are the main borrowers.
-4. Housing Situation: 88.72% of applicants own their homes, reflecting strong financial stability and asset ownership among loan 
-seekers.
-5.Family Status: The majority of applicants are married (63.88%), indicating that family stability may play a significant role in 
-loan applications, followed by single (14.77%) and civil marriage (9.68%) statuses.
-6. Employment Tenure: 44.32% of applicants have less than 5 years of employment, with over 83% having under 10 years, 
-showing that early-career professionals make up a large portion of borrowers.
-7. Employment Status: 51.63% of applicants are employed, with 23.28% being commercial associates, representing a workforce 
-with diverse job roles.
-8. Education Level: 70.99% of applicants have a secondary education, with very few holding academic degrees, indicating a gap 
-in higher education among the applicant pool.
-9. Occupation Types: Laborers form the largest group of applicants, followed by sales and core staff, showing that manual and 
-service-related occupations are prominent among borrowers.
-10. Organization Types: The largest applicant group works for Business Entity Type 3, with a significant number being self  employed, reflecting diverse employment structures among loan applicants""")
-        two.image("Bank Loan Defaulters.png")
+        
+        with one:
+         panel = st.container(height=480, border=True)
+         with panel:
+            st.write("Bank Loan Applications Report")
+            st.image("Bank Loan Applications.png")
+            st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
+            situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
+            across these categories.""")
+ 
+         with two:
+          panel = st.container(height=480, border=True)
+          with panel:
+            st.image("Bank Loan Defaulters.png")
+            st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
+       
+       
         three, four = st.columns([1,1])
-        three.image("Bank Loan repayers.png")
-        four.image("Bank Loan credit, good price and income correlations.png")
-        five, six = st.columns([1,1])
-        five.image("Bank Loan Comprehensive financial overview.png")
-        six.image("Bank Loan Comprehensive financial overview2.png")
-        seven, eight = st.columns([1,1])
-        seven.image("Bank Loan Privious application status based on applicants.png")
-        st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
+        with three:
+          panel = st.container(height=550, border=True)
+          with panel:
+            st.image("Bank Loan repayers.png")
+            st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
+        
+        with four:
+          panel = st.container(height=550, border=True)
+          with panel:
+            st.image("Bank Loan credit, good price and income correlations.png")
+            st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
 
+        five, six = st.columns([1,1])
+        with five:
+          panel = st.container(height=570, border=True)
+          with panel:
+            st.image("Bank Loan Comprehensive financial overview.png")
+            st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
+    
+        with six:
+          panel = st.container(height=600, border=True)
+          with panel:
+            st.image("Bank Loan Comprehensive financial overview2.png")
+            st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
+        
+        seven, eight = st.columns([1,1])
+        with seven:
+          panel = st.container(height=520, border=True)
+          with panel:
+            st.image("Bank Loan Privious application status based on applicants.png")
+            st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
+        
+        st.write("---")
+        st.write("If you are more intrested please hit the below links for more information:")
+        st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
+        st.markdown("[Detailed Information](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")
+        st.markdown("[Dashboard(report)](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
+     
      with st.expander("HR Data Analysis"):
         a1,b1 = st.columns(2)
         a1.image("HRmain.jpg")
@@ -197,7 +223,7 @@ service-related occupations are prominent among borrowers.
         five, six = st.columns([1,1])
         five.image("HR5 Workplace Accident.jpg")
         six.image("HR6 Promotion.jpg")
-        st.markdown(":people: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
+        st.markdown(":female-office-worker: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
 
 elif choice == "Resume":
     with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
@@ -214,43 +240,57 @@ elif choice == "Contact":
     st.write("")
     st.text("Feel free to reach out to me! trough")
     st.write("")
-    col1, col2, col3 = st.columns(3)
-    col1.markdown(":email: Mail: santoshrottayyanavar81@gmail.com")
-    col2.markdown(":chains: [my LinkedIn](https://www.linkedin.com/in/santosh-rottayyanavar-/)")
-    col3.markdown(":smile_cat: [My Github](https://github.com/SantoshRottayyanavar)")
+    
+    st.markdown("santoshrottayyanavar81@gmail.com")
+    social_media_links = [
+        "santoshrottayyanavar81@gmail.com"
+        "https://www.linkedin.com/in/santosh-rottayyanavar-/",
+        "https://github.com/SantoshRottayyanavar",
+    ]
+
+    social_media_icons = SocialMediaIcons(social_media_links)
+
+    social_media_icons.render()
+   
+    
     st.write("---")
 
     #Contact form
     st.markdown("### :postbox: Message Box")
     st.write("write to me for any collaborations / Suggestions to improve")
     
-    #  # google sheets connection
-    # if 'conn' not in st.session_state:
-    #     st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+     # google sheets connection
+    if 'conn' not in st.session_state:
+        st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
 
-    # if "Message_df" not in st.session_state:
-    #    st.session_state.Message_df = st.session_state.conn.read(spreadsheet="https://docs.google.com/spreadsheets/d/14dOIY5ZtGy2hX0fOQ30GY0ZdSHf9HRVKBJuuD4-KpZY/edit?gid=0#gid=0", worksheet="Feedback")
+    if "Message_df" not in st.session_state:
+       try:
+        st.session_state.Message_df = st.session_state.conn.read(worksheet="Feedback")
+       except:
+        st.write("no")
+        
+    if "msg_df" not in st.session_state:
+       st.session_state.msg_df = pd.DataFrame()
 
-    # if "msg_df" not in st.session_state:
-    #    st.session_state.msg_df = pd.DataFrame()
+    with st.form(key="contact_form", clear_on_submit=True):
+        name = st.text_input("Name")
+        email = st.text_input("Email")
+        text = st.text_area("Message")
+        col1, col2, col3, col4 = st.columns(4)
+        submit_button = col4.form_submit_button("Send")
 
-    # with st.form(key="contact_form", clear_on_submit=True):
-    #     name = st.text_input("Name")
-    #     email = st.text_input("Email")
-    #     text = st.text_area("Message")
-    #     col1, col2, col3, col4 = st.columns(4)
-    #     submit_button = col4.form_submit_button("Send")
-
-    #     if submit_button:
-    #         if not (name == "") or (email == "") or (text == ""):
-    #             st.error("Please fill all the fields")
-    #         else:
-    #             st.success(f"Thank you, {name}! I'll get back to you soon if any.")
+        if submit_button:
+            if (name == "") or (email == "") or (text == ""):
+                st.error("Please fill all the fields")
+            else:
+                st.success(f"Thank you, {name}! I'll get back to you soon if any.")
                 
-    #             message = [{"Name": name,
-    #                         "Mail ID": email,
-    #                         "Message": text}]
+                message = [{"Name": name,
+                            "Mail ID": email,
+                            "Message": text}]
                 
-    #             st.session_state.msg_df = pd.DataFrame(message)
-    #             st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
-    #             st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+                st.session_state.msg_df = pd.DataFrame(message)
+                st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
+                st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+
+    
