@@ -58,10 +58,11 @@ st.write("---")
      
 if choice == "Home":    
     st.write("")
-    into, image = st.columns([10,4])
-    into.markdown("<H2 style = 'text-align: center;'>Hi, </h2>", unsafe_allow_html=True)
-    into.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar </h2>", unsafe_allow_html=True)
-    into.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
+    intro, image = st.columns([10,4])
+    intro.markdown("<H2 style = 'text-align: center;'>Hi, </h2>", unsafe_allow_html=True)
+    intro.markdown("<H2 style = 'text-align: center;'>I'm Santosh Rottayyanavar </h2>", unsafe_allow_html=True)
+    intro.markdown("<H4 style = 'text-align: center;'><em>A Data Analyst</em></h4>", unsafe_allow_html=True)
+    intro.markdown("<H5 style = 'text-align: center;'>Help discovering insights from data to make better and informed business decisions.</h5>", unsafe_allow_html=True)
 
     image.image("Santosh Photo.png")
     st.write("")
@@ -154,15 +155,15 @@ elif choice == "Experience":
         one, two = st.columns([1,1])
         
         with one:
-         panel = st.container(height=480, border=True)
-         with panel:
+           panel = st.container(height=480, border=True)
+           with panel:
             st.write("Bank Loan Applications Report")
             st.image("Bank Loan Applications.png")
             st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
             situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
             across these categories.""")
  
-         with two:
+        with two:
           panel = st.container(height=480, border=True)
           with panel:
             st.image("Bank Loan Defaulters.png")
@@ -211,18 +212,76 @@ elif choice == "Experience":
      with st.expander("HR Data Analysis"):
         a1,b1 = st.columns(2)
         a1.image("HRmain.jpg")
+        b1.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
 
         one, two = st.columns([1,1])
-        one.image("HR1 Employee_distribution.jpg")
-        two.image("HR2Employee Avg Monthly Hrs and satisfaction.jpg")
+        with one:
+           panel = st.container(height=780, border=True)
+           with panel:
+             st.image("HR1 Employee_distribution.jpg")
+             st.write("This dashboard provides an overview of employee distribution and HR metrics. Key highlights include:")
+             st.write("\* Turnover and attrition rates are 31.25% and 23.81%, respectively, with a retention rate of 76.19%.")
+             st.write("\* The sales department has the highest number of employees (4,140), while management has the least (630).")
+             st.write("\* Most employees fall under the low to medium salary categories, with only 8.25% earning high salaries.")
+             st.write("\* The distribution of projects shows the sales department leading with over 7,800 projects, followed by technical and support teams.")
+             
+        with two:
+           panel = st.container(height=780, border=True)
+           with panel:
+              st.image("HR2Employee Avg Monthly Hrs and satisfaction.jpg")
+              st.write("This dashboard analyzes average monthly hours and satisfaction levels:")
+              st.write("\* The sales department logs the highest average monthly hours (832K) and satisfaction levels (2.54K), followed by technical and support departments.")
+              st.write("\* Employees with medium salaries work the most hours (48.76%), while high salary groups show the highest satisfaction levels (47.82%).")
+              st.write("\* Management and HR departments have the lowest satisfaction levels and average monthly hours.")
+              st.write("\* There is a positive correlation between average monthly hours and satisfaction in departments like sales, technical, and support.")
         
         three, four = st.columns([1,1])
-        three.image("HR3 Employees Precence.jpg")
-        four.image("HR4 Turnover Rate.jpg")
+        with three:
+           panel = st.container(height=780, border=True)
+           with panel:
+              st.image("HR3 Employees Precence.jpg")
+              st.write("This dashboard provides an analysis of employee presence and related metrics, structured into six main sections. Key highlights include:")
+              st.write("\* Employees who stayed tend to work more hours, especially in sales, technical, and support departments.")
+              st.write("\* Higher satisfaction levels correlate with employee retention across all departments.")
+              st.write("\* Most employees who left had low to medium salaries, whereas retention is higher among medium-salary employees.")
+              st.write("\* Longer time spent in the company is linked to higher retention, especially in departments with strong workforce stability like sales and technical teams.")
+        
+        with four:
+           panel = st.container(height=1020, border=True)
+           with panel:
+              st.image("HR4 Turnover Rate.jpg")
+              st.write("This dashboard provides insights into employee turnover rates and related metrics. Key highlights include:")
+              st.write("\* The total turnover rate is 31.25%, reflecting a significant portion of the workforce leaving.")
+              st.write("\* The HR department has the highest turnover rate at 41.03%, followed by accounting (36.23%) and technical (34.45%). Management has the lowest turnover rate (16.88%), suggesting better retention strategies.")
+              st.write("\* Employees with low satisfaction levels (0.31–0.4) account for the highest turnover, indicating dissatisfaction as a key driver of attrition.")
+              st.write("\* Turnover is highest among employees with low salaries (42.22%), while high-salary employees experience the least turnover (7.10%)")
+              st.write("\* Employees who were not promoted in the last five years show significantly higher turnover rates (83.44%), highlighting the importance of career progression.")
+              st.write("\* Turnover is slightly higher among employees with no accidents (36.08%) compared to those with accidents (8.45%).")
         
         five, six = st.columns([1,1])
-        five.image("HR5 Workplace Accident.jpg")
-        six.image("HR6 Promotion.jpg")
+        with five:
+           panel = st.container(height=950, border=True)
+           with panel:
+              st.image("HR5 Workplace Accident.jpg")
+              st.write("This dashboard provides insights into workplace accidents and their impact across departments and salary levels. Key observations include:")
+              st.write("\* A total of 2,169 accidents occurred, with 13,000 employees not affected and 2,000 experiencing accidents.")
+              st.write("\* The sales department has the highest number of accidents (265), followed by technical (195) and support (174). Most accidents occurred among employees with low (47.95%) and medium salaries (43.2%), while high-salary employees are the least affected (8.85%).")
+              st.write("\* Sales, technical, and support departments show a high correlation between workplace accidents and employee turnover.")
+              st.write("\* Departments like sales and technical show higher accident counts with longer employee tenure. Shorter-tenured departments (e.g., marketing and IT) exhibit fewer accidents.")
+              st.write("\* Employees involved in accidents show lower satisfaction levels compared to others.")
+
+        with six:
+           panel = st.container(height=1450, border=True)
+           with panel:
+              st.image("HR6 Promotion.jpg")
+              st.write("This report visualizes key metrics related to employee promotions over the last five years. Here's an analysis of each section:")
+              st.write("\* Only 2.13% of employees were promoted (0.32K), while 97.87% (14.68K) were not promoted.Promotions are rare, indicating either a highly selective process or limited opportunities for promotion.")
+              st.write("\* Employees with medium salaries saw the highest promotion rate (56.74%, 181 employees, High-salary employees followed at 22.57% (72 employees). Employees with low salaries were least likely to be promoted (20.69%, 66 employees). This suggests a potential bias toward mid-salary employees for promotions.")
+              st.write("\* Employees with higher satisfaction levels (e.g., 0.71-0.8) had higher promotion rates (59 promotions). Lower satisfaction levels (e.g., 0-0.1) corresponded to minimal promotions. Satisfaction may be a contributing factor in promotion decisions, possibly reflecting better performance or attitude.")
+              st.write("\* The Sales department leads with the most promotions (100), followed by Management (69) and Marketing (43). Departments like IT (3) and Product Management (0) had very few or no promotions, indicating disparities in promotion opportunities across departments.")
+              st.write("\* Most promotions (94.04%, 300 employees) were given to those who stayed with the company. Only 5.96% (19 employees) of promotions went to those who eventually left. This indicates the company prioritizes retention when promoting.")
+              st.write("\* Employees without work accidents had a significantly higher promotion rate (76.18%, 243 employees). Those who had work accidents were less likely to be promoted (23.82%, 76 employees). This could indicate a preference for employees with consistent performance and no interruptions due to accidents.")
+
         st.markdown(":female-office-worker: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
 
 elif choice == "Resume":
@@ -264,11 +323,8 @@ elif choice == "Contact":
         st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
 
     if "Message_df" not in st.session_state:
-       try:
         st.session_state.Message_df = st.session_state.conn.read(worksheet="Feedback")
-       except:
-        st.write("no")
-        
+      
     if "msg_df" not in st.session_state:
        st.session_state.msg_df = pd.DataFrame()
 
