@@ -302,7 +302,6 @@ elif choice == "Contact":
     
     st.markdown("santoshrottayyanavar81@gmail.com")
     social_media_links = [
-        "santoshrottayyanavar81@gmail.com"
         "https://www.linkedin.com/in/santosh-rottayyanavar-/",
         "https://github.com/SantoshRottayyanavar",
     ]
