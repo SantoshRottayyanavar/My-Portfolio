@@ -164,18 +164,18 @@ elif choice == "Experience":
         bank, hr = st.columns(2)
         #bank project front image abd button
         with bank:
-            panel1 = st.container(height=375, border=True)
+            panel1 = st.container(height=380, border=True)
             with panel1:
-                st.image("bankloanimages/Bankloanimage.png",width=800)
+                st.image("bankloanimages/Bankloanimage.png")
                 bankbutton = st.button("Double Click Here for Bank Loan Analysis info", key="button1")
                 if bankbutton:
                     switch_page("bank_info")
         
         #hr project front image abd button
         with hr:
-            panel2 = st.container(height =375, border = True)
+            panel2 = st.container(height =380, border = True)
             with panel2:
-                st.image("hrimagesfolder/hrdataanalysis.png",width=550) 
+                st.image("hrimagesfolder/hrdataanalysis.png") 
                 hrbutton = st.button("Double Click Here for HR Analysis info", key="button2")
                 if hrbutton:
                     switch_page("hr_info")  
