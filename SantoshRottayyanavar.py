@@ -166,7 +166,7 @@ elif choice == "Experience":
         with bank:
             panel1 = st.container(height=375, border=True)
             with panel1:
-                st.image("bankloanimages\Bankloanimage.png",width=800)
+                st.image("bankloanimages/Bankloanimage.png",width=800)
                 bankbutton = st.button("Double Click Here for Bank Loan Analysis info", key="button1")
                 if bankbutton:
                     switch_page("bank_info")
