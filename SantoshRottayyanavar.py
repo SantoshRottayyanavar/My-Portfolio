@@ -175,7 +175,7 @@ elif choice == "Experience":
         with hr:
             panel2 = st.container(height =375, border = True)
             with panel2:
-                st.image("hrimagesfolder\hrdataanalysis.png",width=550) 
+                st.image("hrimagesfolder/hrdataanalysis.png",width=550) 
                 hrbutton = st.button("Double Click Here for HR Analysis info", key="button2")
                 if hrbutton:
                     switch_page("hr_info")  
@@ -192,7 +192,7 @@ elif choice == "Experience":
         with a:
             panel = st.container(height=380, border=True)
             with panel:
-                st.image("Salesimages\PracticedSalesProjects.png")
+                st.image("Salesimages/PracticedSalesProjects.png")
                 project1button = st.button("Click Here for Sales Analysis info", key="button3")
                 if project1button:
                     switch_page("sales_info")                          
@@ -201,33 +201,33 @@ elif choice == "Experience":
     def bank_info_page():
                 st.write("Report 1")
                 st.write("Bank Loan Applications Report")
-                st.image("bankloanimages\Bank Loan Applications.png")
+                st.image("bankloanimages/Bank Loan Applications.png")
                 st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
                 situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
                 across these categories.""")
     
                 st.write("Report 2")
-                st.image("bankloanimages\Bank Loan Defaulters.png")
+                st.image("bankloanimages/Bank Loan Defaulters.png")
                 st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
     
                 st.write("Report 3")
-                st.image("bankloanimages\Bank Loan repayers.png")
+                st.image("bankloanimages/Bank Loan repayers.png")
                 st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
             
                 st.write("Report 4")
-                st.image("bankloanimages\Bank Loan credit, good price and income correlations.png")
+                st.image("bankloanimages/Bank Loan credit, good price and income correlations.png")
                 st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
 
                 st.write("Report 5")
-                st.image("bankloanimages\Bank Loan Comprehensive financial overview.png")
+                st.image("bankloanimages/Bank Loan Comprehensive financial overview.png")
                 st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
   
                 st.write("Report 6")
-                st.image("bankloanimages\Bank Loan Comprehensive financial overview2.png")
+                st.image("bankloanimages/Bank Loan Comprehensive financial overview2.png")
                 st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
             
                 st.write("Report 7")
-                st.image("bankloanimages\Bank Loan Privious application status based on applicants.png")
+                st.image("bankloanimages/Bank Loan Privious application status based on applicants.png")
                 st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
                 st.write("---")
                 st.write("If you are more intrested please hit the below links for more information:")
@@ -239,11 +239,11 @@ elif choice == "Experience":
     
     #hr internal information
     def hr_info_page():
-        st.image("hrimagesfolder\HRmain.jpg")
+        st.image("hrimagesfolder/HRmain.jpg")
         st.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
 
         st.write("Report 1")
-        st.image("hrimagesfolder\HR1 Employee_distribution.jpg")
+        st.image("hrimagesfolder/HR1 Employee_distribution.jpg")
         st.write("This dashboard provides an overview of employee distribution and HR metrics. Key highlights include:")
         st.write("\* Turnover and attrition rates are 31.25% and 23.81%, respectively, with a retention rate of 76.19%.")
         st.write("\* The sales department has the highest number of employees (4,140), while management has the least (630).")
@@ -251,7 +251,7 @@ elif choice == "Experience":
         st.write("\* The distribution of projects shows the sales department leading with over 7,800 projects, followed by technical and support teams.")
     
         st.write("Report 2")
-        st.image("hrimagesfolder\HR2Employee Avg Monthly Hrs and satisfaction.jpg")
+        st.image("hrimagesfolder/HR2Employee Avg Monthly Hrs and satisfaction.jpg")
         st.write("This dashboard analyzes average monthly hours and satisfaction levels:")
         st.write("\* The sales department logs the highest average monthly hours (832K) and satisfaction levels (2.54K), followed by technical and support departments.")
         st.write("\* Employees with medium salaries work the most hours (48.76%), while high salary groups show the highest satisfaction levels (47.82%).")
@@ -259,7 +259,7 @@ elif choice == "Experience":
         st.write("\* There is a positive correlation between average monthly hours and satisfaction in departments like sales, technical, and support.")
     
         st.write("Report 3")
-        st.image("hrimagesfolder\HR3 Employees Precence.jpg")
+        st.image("hrimagesfolder/HR3 Employees Precence.jpg")
         st.write("This dashboard provides an analysis of employee presence and related metrics, structured into six main sections. Key highlights include:")
         st.write("\* Employees who stayed tend to work more hours, especially in sales, technical, and support departments.")
         st.write("\* Higher satisfaction levels correlate with employee retention across all departments.")
@@ -267,7 +267,7 @@ elif choice == "Experience":
         st.write("\* Longer time spent in the company is linked to higher retention, especially in departments with strong workforce stability like sales and technical teams.")
 
         st.write("Report 4")
-        st.image("hrimagesfolder\HR4 Turnover Rate.jpg")
+        st.image("hrimagesfolder/HR4 Turnover Rate.jpg")
         st.write("This dashboard provides insights into employee turnover rates and related metrics. Key highlights include:")
         st.write("\* The total turnover rate is 31.25%, reflecting a significant portion of the workforce leaving.")
         st.write("\* The HR department has the highest turnover rate at 41.03%, followed by accounting (36.23%) and technical (34.45%). Management has the lowest turnover rate (16.88%), suggesting better retention strategies.")
@@ -277,7 +277,7 @@ elif choice == "Experience":
         st.write("\* Turnover is slightly higher among employees with no accidents (36.08%) compared to those with accidents (8.45%).")
 
         st.write("Report 5")
-        st.image("hrimagesfolder\HR5 Workplace Accident.jpg")
+        st.image("hrimagesfolder/HR5 Workplace Accident.jpg")
         st.write("This dashboard provides insights into workplace accidents and their impact across departments and salary levels. Key observations include:")
         st.write("\* A total of 2,169 accidents occurred, with 13,000 employees not affected and 2,000 experiencing accidents.")
         st.write("\* The sales department has the highest number of accidents (265), followed by technical (195) and support (174). Most accidents occurred among employees with low (47.95%) and medium salaries (43.2%), while high-salary employees are the least affected (8.85%).")
@@ -286,7 +286,7 @@ elif choice == "Experience":
         st.write("\* Employees involved in accidents show lower satisfaction levels compared to others.")
 
         st.write("Report 6")
-        st.image("hrimagesfolder\HR6 Promotion.jpg")
+        st.image("hrimagesfolder/HR6 Promotion.jpg")
         st.write("This report visualizes key metrics related to employee promotions over the last five years. Here's an analysis of each section:")
         st.write("\* Only 2.13% of employees were promoted (0.32K), while 97.87% (14.68K) were not promoted.Promotions are rare, indicating either a highly selective process or limited opportunities for promotion.")
         st.write("\* Employees with medium salaries saw the highest promotion rate (56.74%, 181 employees, High-salary employees followed at 22.57% (72 employees). Employees with low salaries were least likely to be promoted (20.69%, 66 employees). This suggests a potential bias toward mid-salary employees for promotions.")
@@ -311,11 +311,11 @@ elif choice == "Experience":
                 st.write("Sql Server Data Clean")
                 #if sqltitle:
                 sql1,sql2 = st.columns(2)
-                sql1.image("Salesimages\Sqlserver.png")
-                sql2.image("Salesimages\Sqlserver2.png")
+                sql1.image("Salesimages/Sqlserver.png")
+                sql2.image("Salesimages/Sqlserver2.png")
                 sql3, sql4 = st.columns(2)
-                sql3.image("Salesimages\Sqlserver3.png")
-                sql4.image("Salesimages\Sqlserver4.png")
+                sql3.image("Salesimages/Sqlserver3.png")
+                sql4.image("Salesimages/Sqlserver4.png")
             if st.button("Back to Home", key="back_from_sales"):
                         switch_page("home")        
 
