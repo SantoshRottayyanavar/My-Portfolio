@@ -145,144 +145,211 @@ elif choice == "About":
     
 
 elif choice == "Experience":
-     st.write("")
-     st.markdown("##### Internships")
-     st.markdown("###### Company Name: AI Variant")
-     st.write("AI Variant is an analytics firm, provides best-in-class products and solutions.It has deep analytics expertise as well as domain expertise in various industries. It's employees extremely passionate about taking on challenges that matter to the clients.")
-     st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
-     st.markdown("###### Projects:")
-     with st.expander("Bank Loan Analysis"):
-        one, two = st.columns([1,1])
-        
-        with one:
-           panel = st.container(height=480, border=True)
-           with panel:
-            st.write("Bank Loan Applications Report")
-            st.image("Bank Loan Applications.png")
-            st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
-            situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
-            across these categories.""")
- 
-        with two:
-          panel = st.container(height=480, border=True)
-          with panel:
-            st.image("Bank Loan Defaulters.png")
-            st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
-       
-       
-        three, four = st.columns([1,1])
-        with three:
-          panel = st.container(height=550, border=True)
-          with panel:
-            st.image("Bank Loan repayers.png")
-            st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
-        
-        with four:
-          panel = st.container(height=550, border=True)
-          with panel:
-            st.image("Bank Loan credit, good price and income correlations.png")
-            st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
+    st.write("")
+    if 'page' not in st.session_state:
+        st.session_state.page = "home"
 
-        five, six = st.columns([1,1])
-        with five:
-          panel = st.container(height=570, border=True)
-          with panel:
-            st.image("Bank Loan Comprehensive financial overview.png")
-            st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
+    # Function to switch pages
+    def switch_page(target_page):
+        st.session_state.page = target_page
     
-        with six:
-          panel = st.container(height=600, border=True)
-          with panel:
-            st.image("Bank Loan Comprehensive financial overview2.png")
-            st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
+    # Define pages
+    def home_page():
+        st.markdown("##### Internships")
+        st.markdown("###### Company Name: AI Variant")
+        st.write("AI Variant is an analytics firm, provides best-in-class products and solutions.It has deep analytics expertise as well as domain expertise in various industries. It's employees extremely passionate about taking on challenges that matter to the clients.")
+        st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
+        st.markdown("###### Projects:")
+
+        bank, hr = st.columns(2)
+        #bank project front image abd button
+        with bank:
+            panel1 = st.container(height=375, border=True)
+            with panel1:
+                st.image("bankloanimages\Bankloanimage.png",width=800)
+                bankbutton = st.button("Double Click Here for Bank Loan Analysis info", key="button1")
+                if bankbutton:
+                    switch_page("bank_info")
         
-        seven, eight = st.columns([1,1])
-        with seven:
-          panel = st.container(height=520, border=True)
-          with panel:
-            st.image("Bank Loan Privious application status based on applicants.png")
-            st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
+        #hr project front image abd button
+        with hr:
+            panel2 = st.container(height =375, border = True)
+            with panel2:
+                st.image("hrimagesfolder\hrdataanalysis.png",width=550) 
+                hrbutton = st.button("Double Click Here for HR Analysis info", key="button2")
+                if hrbutton:
+                    switch_page("hr_info")  
         
+        #Details of Practiced Projects
+        st.write("---")
+            #Practiced Project Part
+        st.markdown("#### Practiced Projects")
+        st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
+                            By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
+        
+        #sales project front image abd button
+        a, b =st.columns(2)
+        with a:
+            panel = st.container(height=380, border=True)
+            with panel:
+                st.image("Salesimages\PracticedSalesProjects.png")
+                project1button = st.button("Click Here for Sales Analysis info", key="button3")
+                if project1button:
+                    switch_page("sales_info")                          
+    
+    #bank internal information
+    def bank_info_page():
+                st.write("Report 1")
+                st.write("Bank Loan Applications Report")
+                st.image("bankloanimages\Bank Loan Applications.png")
+                st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
+                situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
+                across these categories.""")
+    
+                st.write("Report 2")
+                st.image("bankloanimages\Bank Loan Defaulters.png")
+                st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
+    
+                st.write("Report 3")
+                st.image("bankloanimages\Bank Loan repayers.png")
+                st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
+            
+                st.write("Report 4")
+                st.image("bankloanimages\Bank Loan credit, good price and income correlations.png")
+                st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
+
+                st.write("Report 5")
+                st.image("bankloanimages\Bank Loan Comprehensive financial overview.png")
+                st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
+  
+                st.write("Report 6")
+                st.image("bankloanimages\Bank Loan Comprehensive financial overview2.png")
+                st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
+            
+                st.write("Report 7")
+                st.image("bankloanimages\Bank Loan Privious application status based on applicants.png")
+                st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
+                st.write("---")
+                st.write("If you are more intrested please hit the below links for more information:")
+                st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
+                st.markdown(":bar_chart: [Bank Loan Analysis Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
+                st.markdown(":bookmark_tabs: [Bank Loan Analysis Final Report](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")     
+                if st.button("Back to Home", key="back_from_bank"):
+                    switch_page("home")
+    
+    #hr internal information
+    def hr_info_page():
+        st.image("hrimagesfolder\HRmain.jpg")
+        st.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
+
+        st.write("Report 1")
+        st.image("hrimagesfolder\HR1 Employee_distribution.jpg")
+        st.write("This dashboard provides an overview of employee distribution and HR metrics. Key highlights include:")
+        st.write("\* Turnover and attrition rates are 31.25% and 23.81%, respectively, with a retention rate of 76.19%.")
+        st.write("\* The sales department has the highest number of employees (4,140), while management has the least (630).")
+        st.write("\* Most employees fall under the low to medium salary categories, with only 8.25% earning high salaries.")
+        st.write("\* The distribution of projects shows the sales department leading with over 7,800 projects, followed by technical and support teams.")
+    
+        st.write("Report 2")
+        st.image("hrimagesfolder\HR2Employee Avg Monthly Hrs and satisfaction.jpg")
+        st.write("This dashboard analyzes average monthly hours and satisfaction levels:")
+        st.write("\* The sales department logs the highest average monthly hours (832K) and satisfaction levels (2.54K), followed by technical and support departments.")
+        st.write("\* Employees with medium salaries work the most hours (48.76%), while high salary groups show the highest satisfaction levels (47.82%).")
+        st.write("\* Management and HR departments have the lowest satisfaction levels and average monthly hours.")
+        st.write("\* There is a positive correlation between average monthly hours and satisfaction in departments like sales, technical, and support.")
+    
+        st.write("Report 3")
+        st.image("hrimagesfolder\HR3 Employees Precence.jpg")
+        st.write("This dashboard provides an analysis of employee presence and related metrics, structured into six main sections. Key highlights include:")
+        st.write("\* Employees who stayed tend to work more hours, especially in sales, technical, and support departments.")
+        st.write("\* Higher satisfaction levels correlate with employee retention across all departments.")
+        st.write("\* Most employees who left had low to medium salaries, whereas retention is higher among medium-salary employees.")
+        st.write("\* Longer time spent in the company is linked to higher retention, especially in departments with strong workforce stability like sales and technical teams.")
+
+        st.write("Report 4")
+        st.image("hrimagesfolder\HR4 Turnover Rate.jpg")
+        st.write("This dashboard provides insights into employee turnover rates and related metrics. Key highlights include:")
+        st.write("\* The total turnover rate is 31.25%, reflecting a significant portion of the workforce leaving.")
+        st.write("\* The HR department has the highest turnover rate at 41.03%, followed by accounting (36.23%) and technical (34.45%). Management has the lowest turnover rate (16.88%), suggesting better retention strategies.")
+        st.write("\* Employees with low satisfaction levels (0.31–0.4) account for the highest turnover, indicating dissatisfaction as a key driver of attrition.")
+        st.write("\* Turnover is highest among employees with low salaries (42.22%), while high-salary employees experience the least turnover (7.10%)")
+        st.write("\* Employees who were not promoted in the last five years show significantly higher turnover rates (83.44%), highlighting the importance of career progression.")
+        st.write("\* Turnover is slightly higher among employees with no accidents (36.08%) compared to those with accidents (8.45%).")
+
+        st.write("Report 5")
+        st.image("hrimagesfolder\HR5 Workplace Accident.jpg")
+        st.write("This dashboard provides insights into workplace accidents and their impact across departments and salary levels. Key observations include:")
+        st.write("\* A total of 2,169 accidents occurred, with 13,000 employees not affected and 2,000 experiencing accidents.")
+        st.write("\* The sales department has the highest number of accidents (265), followed by technical (195) and support (174). Most accidents occurred among employees with low (47.95%) and medium salaries (43.2%), while high-salary employees are the least affected (8.85%).")
+        st.write("\* Sales, technical, and support departments show a high correlation between workplace accidents and employee turnover.")
+        st.write("\* Departments like sales and technical show higher accident counts with longer employee tenure. Shorter-tenured departments (e.g., marketing and IT) exhibit fewer accidents.")
+        st.write("\* Employees involved in accidents show lower satisfaction levels compared to others.")
+
+        st.write("Report 6")
+        st.image("hrimagesfolder\HR6 Promotion.jpg")
+        st.write("This report visualizes key metrics related to employee promotions over the last five years. Here's an analysis of each section:")
+        st.write("\* Only 2.13% of employees were promoted (0.32K), while 97.87% (14.68K) were not promoted.Promotions are rare, indicating either a highly selective process or limited opportunities for promotion.")
+        st.write("\* Employees with medium salaries saw the highest promotion rate (56.74%, 181 employees, High-salary employees followed at 22.57% (72 employees). Employees with low salaries were least likely to be promoted (20.69%, 66 employees). This suggests a potential bias toward mid-salary employees for promotions.")
+        st.write("\* Employees with higher satisfaction levels (e.g., 0.71-0.8) had higher promotion rates (59 promotions). Lower satisfaction levels (e.g., 0-0.1) corresponded to minimal promotions. Satisfaction may be a contributing factor in promotion decisions, possibly reflecting better performance or attitude.")
+        st.write("\* The Sales department leads with the most promotions (100), followed by Management (69) and Marketing (43). Departments like IT (3) and Product Management (0) had very few or no promotions, indicating disparities in promotion opportunities across departments.")
+        st.write("\* Most promotions (94.04%, 300 employees) were given to those who stayed with the company. Only 5.96% (19 employees) of promotions went to those who eventually left. This indicates the company prioritizes retention when promoting.")
+        st.write("\* Employees without work accidents had a significantly higher promotion rate (76.18%, 243 employees). Those who had work accidents were less likely to be promoted (23.82%, 76 employees). This could indicate a preference for employees with consistent performance and no interruptions due to accidents.")
         st.write("---")
         st.write("If you are more intrested please hit the below links for more information:")
-        st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
-        st.markdown("[Detailed Information](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")
-        st.markdown("[Dashboard(report)](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
-     
-     with st.expander("HR Data Analysis"):
-        a1,b1 = st.columns(2)
-        a1.image("HRmain.jpg")
-        b1.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
-
-        one, two = st.columns([1,1])
-        with one:
-           panel = st.container(height=780, border=True)
-           with panel:
-             st.image("HR1 Employee_distribution.jpg")
-             st.write("This dashboard provides an overview of employee distribution and HR metrics. Key highlights include:")
-             st.write("\* Turnover and attrition rates are 31.25% and 23.81%, respectively, with a retention rate of 76.19%.")
-             st.write("\* The sales department has the highest number of employees (4,140), while management has the least (630).")
-             st.write("\* Most employees fall under the low to medium salary categories, with only 8.25% earning high salaries.")
-             st.write("\* The distribution of projects shows the sales department leading with over 7,800 projects, followed by technical and support teams.")
-             
-        with two:
-           panel = st.container(height=780, border=True)
-           with panel:
-              st.image("HR2Employee Avg Monthly Hrs and satisfaction.jpg")
-              st.write("This dashboard analyzes average monthly hours and satisfaction levels:")
-              st.write("\* The sales department logs the highest average monthly hours (832K) and satisfaction levels (2.54K), followed by technical and support departments.")
-              st.write("\* Employees with medium salaries work the most hours (48.76%), while high salary groups show the highest satisfaction levels (47.82%).")
-              st.write("\* Management and HR departments have the lowest satisfaction levels and average monthly hours.")
-              st.write("\* There is a positive correlation between average monthly hours and satisfaction in departments like sales, technical, and support.")
-        
-        three, four = st.columns([1,1])
-        with three:
-           panel = st.container(height=780, border=True)
-           with panel:
-              st.image("HR3 Employees Precence.jpg")
-              st.write("This dashboard provides an analysis of employee presence and related metrics, structured into six main sections. Key highlights include:")
-              st.write("\* Employees who stayed tend to work more hours, especially in sales, technical, and support departments.")
-              st.write("\* Higher satisfaction levels correlate with employee retention across all departments.")
-              st.write("\* Most employees who left had low to medium salaries, whereas retention is higher among medium-salary employees.")
-              st.write("\* Longer time spent in the company is linked to higher retention, especially in departments with strong workforce stability like sales and technical teams.")
-        
-        with four:
-           panel = st.container(height=1020, border=True)
-           with panel:
-              st.image("HR4 Turnover Rate.jpg")
-              st.write("This dashboard provides insights into employee turnover rates and related metrics. Key highlights include:")
-              st.write("\* The total turnover rate is 31.25%, reflecting a significant portion of the workforce leaving.")
-              st.write("\* The HR department has the highest turnover rate at 41.03%, followed by accounting (36.23%) and technical (34.45%). Management has the lowest turnover rate (16.88%), suggesting better retention strategies.")
-              st.write("\* Employees with low satisfaction levels (0.31–0.4) account for the highest turnover, indicating dissatisfaction as a key driver of attrition.")
-              st.write("\* Turnover is highest among employees with low salaries (42.22%), while high-salary employees experience the least turnover (7.10%)")
-              st.write("\* Employees who were not promoted in the last five years show significantly higher turnover rates (83.44%), highlighting the importance of career progression.")
-              st.write("\* Turnover is slightly higher among employees with no accidents (36.08%) compared to those with accidents (8.45%).")
-        
-        five, six = st.columns([1,1])
-        with five:
-           panel = st.container(height=950, border=True)
-           with panel:
-              st.image("HR5 Workplace Accident.jpg")
-              st.write("This dashboard provides insights into workplace accidents and their impact across departments and salary levels. Key observations include:")
-              st.write("\* A total of 2,169 accidents occurred, with 13,000 employees not affected and 2,000 experiencing accidents.")
-              st.write("\* The sales department has the highest number of accidents (265), followed by technical (195) and support (174). Most accidents occurred among employees with low (47.95%) and medium salaries (43.2%), while high-salary employees are the least affected (8.85%).")
-              st.write("\* Sales, technical, and support departments show a high correlation between workplace accidents and employee turnover.")
-              st.write("\* Departments like sales and technical show higher accident counts with longer employee tenure. Shorter-tenured departments (e.g., marketing and IT) exhibit fewer accidents.")
-              st.write("\* Employees involved in accidents show lower satisfaction levels compared to others.")
-
-        with six:
-           panel = st.container(height=1450, border=True)
-           with panel:
-              st.image("HR6 Promotion.jpg")
-              st.write("This report visualizes key metrics related to employee promotions over the last five years. Here's an analysis of each section:")
-              st.write("\* Only 2.13% of employees were promoted (0.32K), while 97.87% (14.68K) were not promoted.Promotions are rare, indicating either a highly selective process or limited opportunities for promotion.")
-              st.write("\* Employees with medium salaries saw the highest promotion rate (56.74%, 181 employees, High-salary employees followed at 22.57% (72 employees). Employees with low salaries were least likely to be promoted (20.69%, 66 employees). This suggests a potential bias toward mid-salary employees for promotions.")
-              st.write("\* Employees with higher satisfaction levels (e.g., 0.71-0.8) had higher promotion rates (59 promotions). Lower satisfaction levels (e.g., 0-0.1) corresponded to minimal promotions. Satisfaction may be a contributing factor in promotion decisions, possibly reflecting better performance or attitude.")
-              st.write("\* The Sales department leads with the most promotions (100), followed by Management (69) and Marketing (43). Departments like IT (3) and Product Management (0) had very few or no promotions, indicating disparities in promotion opportunities across departments.")
-              st.write("\* Most promotions (94.04%, 300 employees) were given to those who stayed with the company. Only 5.96% (19 employees) of promotions went to those who eventually left. This indicates the company prioritizes retention when promoting.")
-              st.write("\* Employees without work accidents had a significantly higher promotion rate (76.18%, 243 employees). Those who had work accidents were less likely to be promoted (23.82%, 76 employees). This could indicate a preference for employees with consistent performance and no interruptions due to accidents.")
-
         st.markdown(":female-office-worker: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
+        st.markdown(":bar_chart: [HR Data Analysis Dashboard](https://app.powerbi.com/links/TnhGzXJmRC?ctid=1f982a31-2757-47db-99bd-779e54f6229f&pbi_source=linkShare&bookmarkGuid=1b7c33f1-d00a-4997-ba1f-2cd9b28cfb03)")
+        st.markdown(":bookmark_tabs: [HR Data Analysis Final Report](https://github.com/SantoshRottayyanavar/HR-Data-Analysis/blob/main/HR%20Data%20Analysis%20Final%20Report.pdf)")
+        if st.button("Back to Home", key="back_from_hr"):
+            switch_page("home")
+
+    #sales internal information
+    def sales_info_page():
+        # p1, p2 = st.columns(2)
+        # with p1:
+            panel = st.container(height=650, border=True)
+            with panel:
+                st.write("Sql Server Data Clean")
+                #if sqltitle:
+                sql1,sql2 = st.columns(2)
+                sql1.image("Salesimages\Sqlserver.png")
+                sql2.image("Salesimages\Sqlserver2.png")
+                sql3, sql4 = st.columns(2)
+                sql3.image("Salesimages\Sqlserver3.png")
+                sql4.image("Salesimages\Sqlserver4.png")
+            if st.button("Back to Home", key="back_from_sales"):
+                        switch_page("home")        
+
+    # Render the appropriate page
+    if st.session_state.page == "home":
+        home_page()
+    elif st.session_state.page == "bank_info":
+        bank_info_page()
+    elif st.session_state.page == "hr_info":
+        hr_info_page()
+    elif st.session_state.page == "sales_info":
+        sales_info_page()
+    
+    # st.write("---")
+    #  #Practiced Project Part
+    # st.markdown("#### Practiced Projects")
+    # st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
+    #                 By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
+    # project1, project2 = st.columns(2)
+    # with project1:
+    #     panel = st.container(height=380, border=True)
+    #     with panel:
+    #         st.image("PracticedSalesProjects.png")
+    #         project1button = st.button("Click Here for Sales Analysis info", key="button3")
+    #         if project1button:
+    #             p1, p2 = st.columns(2)
+    #             with p1:
+    #                 panel = st.container(height=380, border=True)
+    #                 with panel:
+    #                     sqltitle = st.write("Sql Server Data Clean")
+    #                     if sqltitle:
+    #                         sql1,sql2 = st.columns(2)
+    #                         sql1.image("Sqlserver.png")
+    #                         sql2.image("Sqlserver2.png")
 
 elif choice == "Resume":
     with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
