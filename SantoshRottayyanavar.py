@@ -7,6 +7,7 @@ from streamlit_gsheets import GSheetsConnection
 from streamlit_clickable_images import clickable_images
 import base64
 import os
+
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
 page_bg_image = """
@@ -26,18 +27,18 @@ background-color: rgba(0, 0, 0, 0);
 st.markdown(page_bg_image, unsafe_allow_html=True)
 
 #Removing Hamburger/Deploy option in web app
-st.markdown("""
-<style>
-.st-emotion-cache-147n6fk.ef3psqc6
-{
-   visibility : hidden;
-}
-.st-emotion-cache-125megu.ef3psqc5
-{
-    visibility : hidden;
-}          
-</style>            
-""", unsafe_allow_html=True)
+# st.markdown("""
+# <style>
+# .st-emotion-cache-147n6fk.ef3psqc6
+# {
+#    visibility : hidden;
+# }
+# .st-emotion-cache-125megu.ef3psqc5
+# {
+#     visibility : hidden;
+# }          
+# </style>            
+# """, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1,2])
 
@@ -193,8 +194,8 @@ elif choice == "Experience":
         st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
         st.markdown(":bar_chart: [Bank Loan Analysis Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
         st.markdown(":bookmark_tabs: [Bank Loan Analysis Final Report](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")     
-        if st.button("Back to Home", key="back_from_bank"):
-            switch_page("home")
+        if st.sidebar.button("Back to Home", key="back_from_back"):  
+            switch_page("home") 
     
     def hr_info_page():
         st.write("HR Data Analysis Reports")
@@ -258,8 +259,8 @@ elif choice == "Experience":
         st.markdown(":female-office-worker: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
         st.markdown(":bar_chart: [HR Data Analysis Dashboard](https://app.powerbi.com/links/TnhGzXJmRC?ctid=1f982a31-2757-47db-99bd-779e54f6229f&pbi_source=linkShare&bookmarkGuid=1b7c33f1-d00a-4997-ba1f-2cd9b28cfb03)")
         st.markdown(":bookmark_tabs: [HR Data Analysis Final Report](https://github.com/SantoshRottayyanavar/HR-Data-Analysis/blob/main/HR%20Data%20Analysis%20Final%20Report.pdf)")
-        if st.button("Back to Home", key="back_from_hr"):
-            switch_page("home")
+        if st.sidebar.button("Back to Home", key="back_from_hr"):  
+            switch_page("home") 
     
     def sales_info_page():
         st.write("Sql Server Data Clean")
@@ -278,8 +279,8 @@ elif choice == "Experience":
         st.image("Salesimages/SalesOverview.png")
         st.write("Report 3")
         st.image("Salesimages/ProductDetails.png")
-        if st.button("Back to Home", key="back_from_sales"):
-                switch_page("home") 
+        if st.sidebar.button("Back to Home", key="back_from_sales"):  
+            switch_page("home") 
 
     def main():
         if st.session_state.page == "home":
@@ -299,7 +300,7 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0", "background-size": "cover"},
                         img_style={"margin": "5px", "height": "200px"},
                     )
                     
