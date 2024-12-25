@@ -4,7 +4,9 @@ from streamlit_pdf_viewer import pdf_viewer
 import pandas as pd
 from st_social_media_links import SocialMediaIcons
 from streamlit_gsheets import GSheetsConnection
-
+from st_clickable_images import clickable_images
+import base64
+import os
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
 
 page_bg_image = """
@@ -153,92 +155,53 @@ elif choice == "Experience":
     def switch_page(target_page):
         st.session_state.page = target_page
     
-    # Define pages
-    def home_page():
-        st.markdown("##### Internships")
-        st.markdown("###### Company Name: AI Variant")
-        st.write("AI Variant is an analytics firm, provides best-in-class products and solutions.It has deep analytics expertise as well as domain expertise in various industries. It's employees extremely passionate about taking on challenges that matter to the clients.")
-        st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
-        st.markdown("###### Projects:")
-
-        bank, hr = st.columns(2)
-        #bank project front image abd button
-        with bank:
-            panel1 = st.container(height=380, border=True)
-            with panel1:
-                st.image("bankloanimages/Bankloanimage.png")
-                bankbutton = st.button("Double Click Here for Bank Loan Analysis info", key="button1")
-                if bankbutton:
-                    switch_page("bank_info")
-        
-        #hr project front image abd button
-        with hr:
-            panel2 = st.container(height =380, border = True)
-            with panel2:
-                st.image("hrimagesfolder/hrdataanalysis.png") 
-                hrbutton = st.button("Double Click Here for HR Analysis info", key="button2")
-                if hrbutton:
-                    switch_page("hr_info")  
-        
-        #Details of Practiced Projects
-        st.write("---")
-            #Practiced Project Part
-        st.markdown("#### Practiced Projects")
-        st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
-                            By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
-        
-        #sales project front image abd button
-        a, b =st.columns(2)
-        with a:
-            panel = st.container(height=380, border=True)
-            with panel:
-                st.image("Salesimages/PracticedSalesProjects.png")
-                project1button = st.button("Click Here for Sales Analysis info", key="button3")
-                if project1button:
-                    switch_page("sales_info")                          
+    # Function to encode image as base64
+    def get_img_as_base64(file):
+        with open(file, "rb") as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
     
-    #bank internal information
     def bank_info_page():
-                st.write("Report 1")
-                st.write("Bank Loan Applications Report")
-                st.image("bankloanimages/Bank Loan Applications.png")
-                st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
-                situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
-                across these categories.""")
-    
-                st.write("Report 2")
-                st.image("bankloanimages/Bank Loan Defaulters.png")
-                st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
-    
-                st.write("Report 3")
-                st.image("bankloanimages/Bank Loan repayers.png")
-                st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
-            
-                st.write("Report 4")
-                st.image("bankloanimages/Bank Loan credit, good price and income correlations.png")
-                st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
+        st.write("Bank Loan Applications Reports")
+        st.write("Report 1")
+        st.image("bankloanimages/Bank Loan Applications.png")
+        st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
+        situations, employment details, education levels, and organization types. The visual analysis further highlights patterns and trends 
+        across these categories.""")
 
-                st.write("Report 5")
-                st.image("bankloanimages/Bank Loan Comprehensive financial overview.png")
-                st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
-  
-                st.write("Report 6")
-                st.image("bankloanimages/Bank Loan Comprehensive financial overview2.png")
-                st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
-            
-                st.write("Report 7")
-                st.image("bankloanimages/Bank Loan Privious application status based on applicants.png")
-                st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
-                st.write("---")
-                st.write("If you are more intrested please hit the below links for more information:")
-                st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
-                st.markdown(":bar_chart: [Bank Loan Analysis Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
-                st.markdown(":bookmark_tabs: [Bank Loan Analysis Final Report](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")     
-                if st.button("Back to Home", key="back_from_bank"):
-                    switch_page("home")
+        st.write("Report 2")
+        st.image("bankloanimages/Bank Loan Defaulters.png")
+        st.write("""This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan default patterns among a total of 307,511 applicants, with 24,825 (8.07%) identified as defaulters. The visualization categorizes defaulters by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type.""")
+
+        st.write("Report 3")
+        st.image("bankloanimages/Bank Loan repayers.png")
+        st.write("This dashboard titled \"Loan Defaulters vs Repayers\" provides an in-depth analysis of loan repayment patterns among a total of 307,511 applicants, with 2,82,686 (91.93%) identified as repayers. The visualization categorizes repayers by gender, age, contract type, income type, education, family status, housing type, employment year, and organization type, offering valuable insights into repayment behaviors.")
     
-    #hr internal information
+        st.write("Report 4")
+        st.image("bankloanimages/Bank Loan credit, good price and income correlations.png")
+        st.write("This dashboard titled \"Credit, Goods Price, and Income Correlations\" analyzes the relationships among credit amount, goods price, and income for 307,511 applicants. It highlights a strong positive correlation between credit amount and goods price, limited impact of income on credit size, and the distribution of applicants by family size (majority with 0 or 1 child). Additionally, it examines the variability of annuity amounts relative to income and employment.")
+
+        st.write("Report 5")
+        st.image("bankloanimages/Bank Loan Comprehensive financial overview.png")
+        st.write("The \"Comprehensive Financial Overview\" report examines financial patterns across 307,511 applicants, focusing on credit amount, goods price, and income distribution. It reveals cash loans as the most utilized contract type, with females receiving higher credit amounts on average than males. Credit levels peak among individuals aged 30–50, with employment durations of up to 20 years correlating with higher credit and goods prices. Repayers consistently secure higher financial benefits compared to defaulters.")
+
+        st.write("Report 6")
+        st.image("bankloanimages/Bank Loan Comprehensive financial overview2.png")
+        st.write("The report reveals that credit and goods price utilization is highest among married individuals, those with secondary or higher education, and working professionals, particularly in managerial roles. Credit levels peak for applicants aged 30–50, with longer employment durations correlating with greater financial engagement. Private business entities and individuals living in houses or apartments report the highest credit and goods price activity. Minimal engagement is seen among students, unemployed individuals, and those with unknown or unstable family and housing statuses.")
+    
+        st.write("Report 7")
+        st.image("bankloanimages/Bank Loan Privious application status based on applicants.png")
+        st.write("The report highlights cash loans as the most common contract type, with repairs and electronics leading in loan purposes and purchases. Connectivity and consumer electronics dominate seller industries, while cash payments through banks are the preferred method. Middle-yield applicants and cash portfolios account for the majority of activity. Approval rates are high, but refusals and unused offers indicate potential for improvement.")
+        st.write("---")
+        st.write("If you are more intrested please hit the below links for more information:")
+        st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
+        st.markdown(":bar_chart: [Bank Loan Analysis Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
+        st.markdown(":bookmark_tabs: [Bank Loan Analysis Final Report](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")     
+        if st.button("Back to Home", key="back_from_bank"):
+            switch_page("home")
+    
     def hr_info_page():
+        st.write("HR Data Analysis Reports")
         st.image("hrimagesfolder/HRmain.jpg")
         st.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
 
@@ -301,55 +264,97 @@ elif choice == "Experience":
         st.markdown(":bookmark_tabs: [HR Data Analysis Final Report](https://github.com/SantoshRottayyanavar/HR-Data-Analysis/blob/main/HR%20Data%20Analysis%20Final%20Report.pdf)")
         if st.button("Back to Home", key="back_from_hr"):
             switch_page("home")
-
-    #sales internal information
-    def sales_info_page():
-        # p1, p2 = st.columns(2)
-        # with p1:
-            panel = st.container(height=650, border=True)
-            with panel:
-                st.write("Sql Server Data Clean")
-                #if sqltitle:
-                sql1,sql2 = st.columns(2)
-                sql1.image("Salesimages/Sqlserver.png")
-                sql2.image("Salesimages/Sqlserver2.png")
-                sql3, sql4 = st.columns(2)
-                sql3.image("Salesimages/Sqlserver3.png")
-                sql4.image("Salesimages/Sqlserver4.png")
-            if st.button("Back to Home", key="back_from_sales"):
-                        switch_page("home")        
-
-    # Render the appropriate page
-    if st.session_state.page == "home":
-        home_page()
-    elif st.session_state.page == "bank_info":
-        bank_info_page()
-    elif st.session_state.page == "hr_info":
-        hr_info_page()
-    elif st.session_state.page == "sales_info":
-        sales_info_page()
     
-    # st.write("---")
-    #  #Practiced Project Part
-    # st.markdown("#### Practiced Projects")
-    # st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
-    #                 By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
-    # project1, project2 = st.columns(2)
-    # with project1:
-    #     panel = st.container(height=380, border=True)
-    #     with panel:
-    #         st.image("PracticedSalesProjects.png")
-    #         project1button = st.button("Click Here for Sales Analysis info", key="button3")
-    #         if project1button:
-    #             p1, p2 = st.columns(2)
-    #             with p1:
-    #                 panel = st.container(height=380, border=True)
-    #                 with panel:
-    #                     sqltitle = st.write("Sql Server Data Clean")
-    #                     if sqltitle:
-    #                         sql1,sql2 = st.columns(2)
-    #                         sql1.image("Sqlserver.png")
-    #                         sql2.image("Sqlserver2.png")
+    def sales_info_page():
+        st.write("Sql Server Data Clean")
+        sql1,sql2 = st.columns(2)
+        sql1.image("Salesimages/Sqlserver.png")
+        sql2.image("Salesimages/Sqlserver2.png")
+        sql3, sql4 = st.columns(2)
+        sql3.image("Salesimages/Sqlserver3.png")
+        sql4.image("Salesimages/Sqlserver4.png")
+        st.write("Converted the cleaned data into Excel Format")
+        st.image("Salesimages/ExcelFiles.png") 
+        st.write("Analysed Excel data using Power BI")
+        st.write("Report 1")  
+        st.image("Salesimages\CustomerDetails.png")
+        st.write("Report 2")
+        st.image("Salesimages/SalesOverview.png")
+        st.write("Report 3")
+        st.image("Salesimages/ProductDetails.png")
+        if st.button("Back to Home", key="back_from_sales"):
+                switch_page("home") 
+
+    def main():
+        if st.session_state.page == "home":
+            st.markdown("##### Internships")
+            st.markdown("###### Company Name: AI Variant")
+            st.write("AI Variant is an analytics firm, provides best-in-class products and solutions.It has deep analytics expertise as well as domain expertise in various industries. It's employees extremely passionate about taking on challenges that matter to the clients.")
+            st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
+            st.markdown("###### Projects:")
+            
+            bank, hr = st.columns(2)
+            
+            # Bank project front image and button
+            with bank:
+                image_path = "bankloanimages/Bankloanimage.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+                        img_style={"margin": "-1px", "height": "310px"},
+                    )
+                    
+                    if clicked > -1:
+                        switch_page("bank_info")
+            with hr:
+                image_path = "hrimagesfolder/hrdataanalysis.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+                        img_style={"margin": "-1px", "height": "310px"},
+                    )
+                    
+                    if clicked > -1:
+                        switch_page("hr_info")
+        
+        if st.session_state.page == "home":
+            #Details of Practiced Projects
+            st.write("---")
+                #Practiced Project Part
+            st.markdown("#### Practiced Projects")
+            st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
+                                By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
+            a, b =st.columns(2)                
+            with a:
+                image_path = "Salesimages\PracticedSalesProjects.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+                        img_style={"margin": "-1px", "height": "310px"},
+                    )
+                    
+                    if clicked > -1:
+                        switch_page("sales_info")
+        
+        elif st.session_state.page == "bank_info":
+            bank_info_page()
+        elif st.session_state.page == "hr_info":
+            hr_info_page()  
+        elif st.session_state.page == "sales_info":
+            sales_info_page()    
+        
+    # Run the app
+    if __name__ == "__main__":
+        main()
 
 elif choice == "Resume":
     with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
@@ -361,6 +366,7 @@ elif choice == "Resume":
         )
     pdf_viewer("Santosh Rottayyanavarmath (Resume).pdf")
 
+#contact details section
 elif choice == "Contact":
     st.markdown("### :handshake: Get in Touch")
     st.write("")
