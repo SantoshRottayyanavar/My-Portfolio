@@ -4,3 +4,4 @@ streamlit-pdf-viewer
 pandas
 st-gsheets-connection 
 st-social-media-links
+streamlit-clickable-images
