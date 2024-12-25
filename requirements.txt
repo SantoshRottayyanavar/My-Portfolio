@@ -4,6 +4,6 @@ streamlit-pdf-viewer
 pandas
 st-gsheets-connection 
 st-social-media-links
-streamlit-clickable-images
+st-clickable-images
 base64
 os
