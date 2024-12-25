@@ -14,7 +14,7 @@ page_bg_image = """
 [data-testid="stAppViewContainer"] {
 background-image: url("https://img.freepik.com/free-vector/minimalist-background-with-geometric-shapes_91008-271.jpg?t=st=1733761857~exp=1733765457~hmac=087815752da786420a0a523482f57106ee3483a8f048307f115291b5732332e2&w=1380");
 background-size: cover;
-Abackground-color: #ffffff10;
+background-color: #ffffff10;
 backdrop-filter: blur(50px); 
 }          
 
@@ -24,10 +24,6 @@ background-color: rgba(0, 0, 0, 0);
 </style>"""
 
 st.markdown(page_bg_image, unsafe_allow_html=True)
-
-
-
-
 
 #Removing Hamburger/Deploy option in web app
 st.markdown("""
@@ -46,16 +42,16 @@ st.markdown("""
 col1, col2 = st.columns([1,2])
 
 with col1:
- st.markdown("### Santosh")
+    st.markdown("### Santosh")
 
 with col2:
-  choice = option_menu(
-     menu_title = None,
-     options = ["Home", "About", "Experience", "Resume", "Contact"],
-     icons= ["house-door", "search-heart-fill", "file-person", "pencil-square", "telephone-outbound-fill"],
-     menu_icon = "cast",
-     default_index=0,
-     orientation="horizontal")  
+    choice = option_menu(
+    menu_title = None,
+    options = ["Home", "About", "Experience", "Resume", "Contact"],
+    icons= ["house-door", "search-heart-fill", "file-person", "pencil-square", "telephone-outbound-fill"],
+    menu_icon = "cast",
+    default_index=0,
+    orientation="horizontal")  
 st.write("---")   
      
 if choice == "Home":    
@@ -101,15 +97,15 @@ if choice == "Home":
     st.write("")
 
 elif choice == "About":
-      st.write("")
-      st.markdown("### Inspired by the Data and Coding")
-      st.text("""Inspired by the Data and coding which can be used to analyse with many functionalities and make better and benificial decisions. experiments and works to make it easier for people to understand the code and use data effectively. primarily uses python to explore the Data and coding.
+    st.write("")
+    st.markdown("### Inspired by the Data and Coding")
+    st.text("""Inspired by the Data and coding which can be used to analyse with many functionalities and make better and benificial decisions. experiments and works to make it easier for people to understand the code and use data effectively. primarily uses python to explore the Data and coding.
              
                worked at Amer UID Smart Services, Dubai. As Junior Data Analyst over a year of experience explored various facets of data helping the management to make better and efficient decisions.""")
-      st.write("---")
+    st.write("---")
 
       
-      with st.expander("Certifications"):
+    with st.expander("Certifications"):
         col1, col2 = st.columns(2)
         with col1:
             panel = st.container(height=580, border=True)
@@ -132,12 +128,12 @@ elif choice == "About":
             with panel:
                 st.image("Excelr.jpg", caption="Data Analyst Certification")     
      
-      with st.expander("Education"):
+    with st.expander("Education"):
           st.markdown("#### :book: Education")
           st.text("""Graduated in Computer Application from the Karnataka Univercity, Dharwad - India.
                   Completed PU in Commerce from R L S COMP PU College, Dharwad.""")
 
-      with st.expander("Skills"):
+    with st.expander("Skills"):
           st.markdown("#### :wrench: Skills")
           st.write("- Languages :  English (Professional), Kannada (Native), Hindi (Proficient)")
           st.write("- Programming :  Python (Professional), SQL (Professional)")        
@@ -277,7 +273,7 @@ elif choice == "Experience":
         st.image("Salesimages/ExcelFiles.png") 
         st.write("Analysed Excel data using Power BI")
         st.write("Report 1")  
-        st.image("Salesimages\CustomerDetails.png")
+        st.image("Salesimages/CustomerDetails.png")
         st.write("Report 2")
         st.image("Salesimages/SalesOverview.png")
         st.write("Report 3")
@@ -332,7 +328,7 @@ elif choice == "Experience":
                                 By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
             a, b =st.columns(2)                
             with a:
-                image_path = "Salesimages\PracticedSalesProjects.png"
+                image_path = "Salesimages/PracticedSalesProjects.png"
                 if not os.path.exists(image_path):
                     st.error(f"Image not found at {image_path}")
                 else:
