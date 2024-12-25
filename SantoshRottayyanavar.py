@@ -4,7 +4,7 @@ from streamlit_pdf_viewer import pdf_viewer
 import pandas as pd
 from st_social_media_links import SocialMediaIcons
 from streamlit_gsheets import GSheetsConnection
-from st_clickable_images import clickable_images
+from streamlit_clickable_images import clickable_images
 import base64
 import os
 st.set_page_config(page_title="SantoshRottayyanavar", layout="wide", page_icon="👨🏻‍💼")
