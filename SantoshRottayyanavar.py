@@ -300,7 +300,7 @@ elif choice == "Experience":
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
                         div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "-1px", "height": "310px"},
+                        img_style={"margin": "5px", "height": "200px"},
                     )
                     
                     if clicked > -1:
@@ -313,7 +313,7 @@ elif choice == "Experience":
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
                         div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "-1px", "height": "310px"},
+                        img_style={"margin": "5px", "height": "200px"},
                     )
                     
                     if clicked > -1:
@@ -335,7 +335,7 @@ elif choice == "Experience":
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
                         div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "-1px", "height": "310px"},
+                        img_style={"margin": "5px", "height": "200px"},
                     )
                     
                     if clicked > -1:
