@@ -299,7 +299,7 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
                         img_style={"margin": "5px", "height": "200px"},
                     )
                     
@@ -312,8 +312,8 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "5px", "height": "200px"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
+                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
                     )
                     
                     if clicked > -1:
@@ -334,8 +334,8 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "5px", "height": "200px"},
+                        div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
+                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
                     )
                     
                     if clicked > -1:
