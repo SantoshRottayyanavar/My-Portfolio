@@ -31,11 +31,11 @@ st.markdown(page_bg_image, unsafe_allow_html=True)
 # <style>
 # .st-emotion-cache-147n6fk.ef3psqc6
 # {
-#    visibility : hidden;
+#    visibility : none;
 # }
 # .st-emotion-cache-125megu.ef3psqc5
 # {
-#     visibility : hidden;
+#     visibility : none;
 # }          
 # </style>            
 # """, unsafe_allow_html=True)
@@ -263,7 +263,7 @@ elif choice == "Experience":
             switch_page("home") 
     
     def sales_info_page():
-        st.write("Sql Server Data Clean")
+        st.write("Data Cleaned in SQL Server")
         sql1,sql2 = st.columns(2)
         sql1.image("Salesimages/Sqlserver.png")
         sql2.image("Salesimages/Sqlserver2.png")
@@ -303,9 +303,9 @@ elif choice == "Experience":
                         div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0", "background-size": "cover"},
                         img_style={"margin": "5px", "height": "200px"},
                     )
-                    
                     if clicked > -1:
                         switch_page("bank_info")
+
             with hr:
                 image_path = "hrimagesfolder/hrdataanalysis.png"
                 if not os.path.exists(image_path):
@@ -316,7 +316,6 @@ elif choice == "Experience":
                         div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
                         img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
                     )
-                    
                     if clicked > -1:
                         switch_page("hr_info")
         
@@ -327,6 +326,7 @@ elif choice == "Experience":
             st.markdown("#### Practiced Projects")
             st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
                                 By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
+            
             a, b =st.columns(2)                
             with a:
                 image_path = "Salesimages/PracticedSalesProjects.png"
@@ -338,7 +338,6 @@ elif choice == "Experience":
                         div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
                         img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
                     )
-                    
                     if clicked > -1:
                         switch_page("sales_info")
         
@@ -375,12 +374,9 @@ elif choice == "Contact":
         "https://www.linkedin.com/in/santosh-rottayyanavar-/",
         "https://github.com/SantoshRottayyanavar",
     ]
-
     social_media_icons = SocialMediaIcons(social_media_links)
-
     social_media_icons.render()
    
-    
     st.write("---")
 
     #Contact form
