@@ -270,7 +270,7 @@ elif choice == "Experience":
     def sales_info_page():
         st.markdown("#### Sales Data Analysis")
         st.write("I got this Business mail from 'steven', Steven's email highlights the need to enhance our internet sales reports by transitioning from static formats to visual dashboards. He emphasizes tracking product sales, client data, and performance against the 2024 budget while considering sales trends from the past two years.")
-        st.image("Salesimages/Example Business Request - Mail from Steven.png")
+        st.image("Salesimages/Business Request Mail from Steven.png")
         st.markdown("**Business demand overview**")
         st.image("Salesimages/Business demand overview.png")
         st.write("**Data Cleaned in SQL Server**")
