@@ -27,18 +27,24 @@ background-color: rgba(0, 0, 0, 0);
 st.markdown(page_bg_image, unsafe_allow_html=True)
 
 #Removing Hamburger/Deploy option in web app
-# st.markdown("""
-# <style>
-# .st-emotion-cache-147n6fk.ef3psqc6
-# {
-#    visibility : none;
-# }
-# .st-emotion-cache-125megu.ef3psqc5
-# {
-#     visibility : none;
-# }          
-# </style>            
-# """, unsafe_allow_html=True)
+hamburg_remove = """
+<style>
+.st-emotion-cache-147n6fk.ef3psqc6 {
+   visibility: visible;
+}
+.st-emotion-cache-125megu.ef3psqc5 {
+   visibility: visible;
+}
+.st-emotion-cache-kgpedg.e1dbuyne10 {
+   visibility: visible;
+}
+.stAppHeader.st-emotion-cache-am3w00.e10jh26i0 {
+   visibility: hidden;
+}
+
+</style>
+"""
+st.markdown(hamburg_remove, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1,2])
 
@@ -142,7 +148,6 @@ elif choice == "About":
           st.write("- Tools :  VS Code, PyCharm, Jupyter, Google colab, MySQL, SQL Server, Git & Github")          
           st.write("- Visualization Tools :  Tableau (professional), Power BI (professional)")
     
-
 elif choice == "Experience":
     st.write("")
     if 'page' not in st.session_state:
@@ -194,7 +199,7 @@ elif choice == "Experience":
         st.markdown(":bank: [Bank Loan Analysis](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python)")
         st.markdown(":bar_chart: [Bank Loan Analysis Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/BankloanAnalysisextract/BankLoanApplicantions)")
         st.markdown(":bookmark_tabs: [Bank Loan Analysis Final Report](https://github.com/SantoshRottayyanavar/Bank-Loan-Analysis---Tableau-and-Python/blob/main/Bank%20Loan%20Analisis%20Final%20Report.pdf)")     
-        if st.sidebar.button("Back to Home", key="back_from_back"):  
+        if st.sidebar.button("Back to Home"):  
             switch_page("home") 
     
     def hr_info_page():
@@ -259,27 +264,55 @@ elif choice == "Experience":
         st.markdown(":female-office-worker: [HR Data Analysis](https://github.com/SantoshRottayyanavar/HR-Data-Analysis)")
         st.markdown(":bar_chart: [HR Data Analysis Dashboard](https://app.powerbi.com/links/TnhGzXJmRC?ctid=1f982a31-2757-47db-99bd-779e54f6229f&pbi_source=linkShare&bookmarkGuid=1b7c33f1-d00a-4997-ba1f-2cd9b28cfb03)")
         st.markdown(":bookmark_tabs: [HR Data Analysis Final Report](https://github.com/SantoshRottayyanavar/HR-Data-Analysis/blob/main/HR%20Data%20Analysis%20Final%20Report.pdf)")
-        if st.sidebar.button("Back to Home", key="back_from_hr"):  
+        if st.sidebar.button("Back to Home"):  
             switch_page("home") 
     
     def sales_info_page():
-        st.write("Data Cleaned in SQL Server")
+        st.markdown("#### Sales Data Analysis")
+        st.write("I got this Business mail from 'steven', Steven's email highlights the need to enhance our internet sales reports by transitioning from static formats to visual dashboards. He emphasizes tracking product sales, client data, and performance against the 2024 budget while considering sales trends from the past two years.")
+        st.image("Salesimages/Example Business Request - Mail from Steven.png")
+        st.markdown("**Business demand overview**")
+        st.image("Salesimages/Business demand overview.png")
+        st.write("**Data Cleaned in SQL Server**")
+        st.write("Following a successful data extraction process, The extracted data has been stored in an SQL Server database as a '.bak' file. The dataset comprises the tables 'Customer', 'Calendar', 'InternetSales', and 'Product' which require further manipulation and analysis.")
         sql1,sql2 = st.columns(2)
         sql1.image("Salesimages/Sqlserver.png")
         sql2.image("Salesimages/Sqlserver2.png")
         sql3, sql4 = st.columns(2)
         sql3.image("Salesimages/Sqlserver3.png")
         sql4.image("Salesimages/Sqlserver4.png")
-        st.write("Converted the cleaned data into Excel Format")
+        st.write("converted the cleaned data into Excel format for further reporting and visualization. Each dataset named 'Customer', 'Calendar', 'InternetSales', and 'Product' contains '18,485', '1,097', '58,169', and '607' respectively.")
         st.image("Salesimages/ExcelFiles.png") 
-        st.write("Analysed Excel data using Power BI")
-        st.write("Report 1")  
-        st.image("Salesimages/CustomerDetails.png")
-        st.write("Report 2")
+        st.write("Budget file has given in 'Excel file' it contains 19 rows.")
+        st.image("Salesimages/Budget file.png")
+        st.write("The Excel files have been imported into Power BI for further analysis.")
+        
+        st.write("**Report 1**")
         st.image("Salesimages/SalesOverview.png")
-        st.write("Report 3")
+        st.write("The above report provides the Overview of 'sales'. It contains '3 years' of sales data which converted into a well detailed, organized, visually understandable information. It has different kinds of visuals, cards, and slicers, those are 'total 3 years slicer', 'Month slicer', 'total sales KPI card', 'Bar chart', 'Line chart', 'Map'.")
+        st.write("\* The 'KPI card' shows over all total sales \$22,239,730, budget amount \$21,100,000, difference of sales and budget.")
+        st.write("\* The 'donut chart' shows sales by product category, here product category of 'Bikes is showing high in sales, Accessories and clothing are low in sales.")
+        st.write("\* The 'line chart' shows 'Sales and Budget amount by month', In the year of '2022' the sales went high in the month of 'december', In '2023' the sales and budget shows an overall upward trend in both sales and budget, with sales exceeding budget mid-year but falling short in December. in '2024' the sales has done in january. ")
+        st.write("\* The 'Bar chart' shows sales by top 10 customers, who's over all sales in between \$9,911 and \$12,909.")
+        st.write("\* The another 'Bar chart' shows sales by top 10 products, who's overall sales in between \$621,832 and \$1,371,420.")
+        st.write("\* The MAP shows sales by city, In Europe, the 'london' city has highest sales \$693,517, the second highest sales happened in 'Paris' \$470,333. In North America the highest sales done in the city of Bellflower \$220,219. In Australia 'Wollnogong city has highest sales \$256,013. In Asia the business has been running in only one city named 'Malabar' \$129,371.")
+        
+        st.write("**Report 2**")
+        st.image("Salesimages/CustomerDetails.png")
+        st.write("The 2nd report provides the 'Customer' Details. It also contains '3 years' of customers sales data which converted into a well detailed, organized, visually understandable information. It has different kinds of visuals, cards, and slicers, those are 'Total 3 years slicer', 'Month slicer', 'cards', 'Bar chart', 'Line chart', 'Matrix table', 'Map'.")
+        st.write("\* The 'cards' shows total sales \$22.24M and Total budget \$21M")
+        st.write("\* The 'line chart' shows sales and budget amount by month, the sales and budget are vary over all year the sales didn't reached the budget in the first half and in the 2nd half sales went beyond the budget.")
+        st.write("\* The 'Matrix table' shows sales amount by customer, that gives information regarding which customer purcheses in how many months.")
+        st.write("\* The 'Map' shows 'customer city' here we can understnd that how many customer are staying in which city. the highest customers staying in 'london' nearly 500.")
+        st.write("\* The 'Bar chart' shows top 10 sales by customers as mentioned in report 1.")
+        
+        st.write("**Report 3**")
         st.image("Salesimages/ProductDetails.png")
-        if st.sidebar.button("Back to Home", key="back_from_sales"):  
+        st.write("The 3rd report provides the 'Product' Details. It also contains '3 years' of customers sales data which converted into a well detailed, organized, visually understandable information. It has different kinds of visuals, cards, and slicers, those are 'Total 3 years slicer', 'Month slicer', 'cards', 'Bar chart', 'Line chart', 'Matrix table', 'Map'.")
+        st.write("\* The 'Map' shows 'customer city' here we can understnd that how many products are selling in which city. but here we understood that there are equal products selling in all the cities.")
+        st.write("\* The 'Bar chart' shows top 10 sales by products as mentioned in report 1.")
+        st.write("\* The 'Matrix table' shows sales amount by product, that gives information regarding which product sold how much in every months.")
+        if st.sidebar.button("Back to Home"):  
             switch_page("home") 
 
     def main():
