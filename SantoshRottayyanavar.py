@@ -164,7 +164,7 @@ elif choice == "Experience":
         return base64.b64encode(data).decode()
     
     def bank_info_page():
-        st.write("Bank Loan Applications Reports")
+        st.markdown("#### Bank Loan Applications Reports")
         st.write("Report 1")
         st.image("bankloanimages/Bank Loan Applications.png")
         st.write("""This report provides an analysis of the bank loan applications based on key metrics such as loan types, demographics, housing
@@ -203,7 +203,7 @@ elif choice == "Experience":
             switch_page("home") 
     
     def hr_info_page():
-        st.write("HR Data Analysis Reports")
+        st.markdown("#### HR Data Analysis Reports")
         st.image("hrimagesfolder/HRmain.jpg")
         st.write("This image showcases an HR Data Analysis dashboard with a clean and professional layout. The title, \"HR Data Analysis,\" is prominently displayed at the top, and a \"Main Page\" button is centered for navigation. The left side lists key HR metrics, such as Employee Distribution, Monthly Hours, Turnover Rate, and Workplace Accidents. A visual illustration on the right complements the theme, enhancing its appeal.")
 
@@ -267,6 +267,114 @@ elif choice == "Experience":
         if st.sidebar.button("Back to Home"):  
             switch_page("home") 
     
+    def electronic_sales_info():
+        st.markdown("#### Electronic Sales Analysis Report")
+        st.markdown("###### Received Data in Excel's CSV file")
+        st.write("I received these datasets from 'Meriskill' shared as 'Excel Comma-Separated Values (CSV) files,' and was instructed to analyze the electronics sales data, including quantity, orders, cost, and sales.")
+        st.image("Elecronic_Sales/Unclened_Dataset.png")
+        st.markdown("###### Importing into Python's Pandas Library")
+        st.write("I analyzed the datasets by importing them into Python's Pandas library, applied Exploratory Data Analysis (EDA).")
+        st.image("Elecronic_Sales/Python_file.png")
+        st.markdown("###### Converted Cleaned Data Into Excel CSV Format")
+        st.write("Converted the cleaned data into Excel Comma-Separated Values (CSV) files.")
+        st.image("Elecronic_Sales/Cleaned_dataset.png")
+        st.markdown("###### Imported Dataset Into Power BI Desktop")
+        st.write("I imported the cleaned dataset into Power BI Desktop and created a data model based on the common keys available in each file.")
+        st.markdown("**Report 1**")
+        st.image("Elecronic_Sales/Quantity_Analysis.png")
+        st.write("The report provides electronic sales information and includes multiple visual elements such as cards, KPI cards, slicers, bar charts, maps, and line charts. Each card displays different values, including total customers, total orders, total quantity, total revenue, gross profit, sales per customer, sales per product, and profit percentage. The KPI cards highlight total sales, total cost, and total profit. The slicers allow filtering by continent, country, state, year, and month. The bar chart shows the quantity of brands, categories, subcategories, and colors. The map chart visualizes quantities by country, state, and city, while the line chart displays quantities by month.")
+        st.write("\* Total Customers: 15.3K - Represents the total number of unique customers.")
+        st.write("\* Total Orders: 63K - Indicates the total number of orders placed.")
+        st.write("\* Total Quantity: 198K - Shows the total quantity of items sold.")
+        st.write("\* Total Revenue: $55.8M - The total revenue generated from the sales.")
+        st.write("\* Gross Profit: $32.7M - Highlights the profit after deducting costs.")
+        st.write("\* Sales per Customer: 58.8 - Average sales per customer.")
+        st.write("\* Sales per Product: 356.8 - Average sales per product.")
+        st.write("\* In the KPI card, we can see that the total sales, cost, and profit  is $898,141, $526,492, and 371,649 respectively.")
+        st.write("\* Percentage of Profit: 141.66% - Indicates the profit margin.")
+        st.write("1. Quantity by Brand:")
+        st.write("The top brand is \"Contoso\" with a quantity of 50K. Other notable brands include \"Wide World\" (27K) and \"Southridge\" (25K).")
+        st.write("2. Quantity by Category:")
+        st.write("\"Computers\" is the leading category with 44K items sold, followed by \"Cell phones\" (31K) and \"Music, Movies, and TV\" (29K).")
+        st.write("3. Quantity by Subcategory:")
+        st.write("\"Televisions\" (6K) and \"Laptops\" (5K) are the most sold subcategories, with other subcategories contributing smaller quantities.")
+        st.write("4. Quantity by Color:")
+        st.write("\"Black\" is the most popular color with 52K items sold, followed by \"Silver\" (38K) and \"White\" (36K).")
+        st.write("5. Map Charts:")
+        st.write("\* By Country and State: Highlights sales distribution globally, with concentrated sales in North America and Europe.")
+        st.write("\* By City: Provides detailed city-level data for sales distribution.")
+        st.write("6. Quantity by Month (Line Chart):")
+        st.write("Sales peaked in February (24K) and November (27K). There is a noticeable dip in sales in March (10K), with a gradual recovery afterward.")
+        
+        st.markdown("**Report 2**")
+        st.image("Elecronic_Sales/Order_Analysis.png")
+        st.write("1. Orders by Brand:")
+        st.write("The leading brand is Contoso with 16K orders. Other significant brands include Wide World Importers (9K), Southridge (8K), and The Phone Company (6K).")
+        st.write("2. Orders by Category:")
+        st.write("Computers dominate with 14K orders. Cell Phones (10K) and Music, Movies, and TV (9K) follow as other high-performing categories.")
+        st.write("3. Orders by Subcategory:")
+        st.write("Televisions and Laptops are the most ordered subcategories, each with 2K orders. Other subcategories, such as Projectors & Screens and Camcorders, have smaller contributions.")
+        st.write("4. Orders by Color:")
+        st.write("Black is the most popular color, accounting for 17K orders. Silver and White both have 12K orders each.")
+        st.write("5. Map Charts:")
+        st.write("\* Orders by Country: The map highlights that most sales occur in North America, Europe, and Australia.")
+        st.write("\* Orders by State: Dense clusters of orders are visible in specific states across North America and Europe.")
+        st.write("\* Orders by City: A detailed view shows sales distribution in urban areas, with significant clusters in key cities.")
+        st.write("6. Orders by Month (Line Chart):")
+        st.write("Sales reached a peak in January and April, with around 8K orders each. A noticeable dip occurred in March, where orders dropped to 1K, followed by a recovery in subsequent months.")
+        
+        st.markdown("**Report 3**")
+        st.image("Elecronic_Sales/Cost Analysis.png")
+        st.write("1. Costs by Brand: Contoso leads with the highest cost at \$85.93K, followed by Fabrikam (\$66.29K) and Litware (\$53.62K). Other notable contributors include Adventure Works (\$40.2K) and Proseware (\$31.65K).")
+        st.write("2. Costs by Category: Home Appliances dominate with a total cost of \$149.1K, followed by Computers (\$81.28K). Cameras and Accessories rank third with \$59.03K, while TV and Video contribute \$47.06K.")
+        st.write("3. Costs by Subcategory: The top-performing subcategory is Washers and Dryers with \$55.36K, followed by Camcorders (\$30.89K) and Refrigerators (\$29.51K). Other significant subcategories include Projectors \& Screens (\$25.51K) and Home Theaters (\$22.69K).")
+        st.write("4. Costs by Color: White emerges as the most preferred color in terms of cost, contributing \$76.15K, closely followed by Black (\$73.92K) and Silver (\$67.21K). Grey (\$33.81K) and Green (\$20.85K) also make notable contributions.")
+        st.write("5. Costs by Country: The analysis highlights North America, Europe, and Australia as the key regions driving significant costs.")
+        st.write("6. Costs by State: Dense clusters of costs are observed in several states across North America and Europe, marking these regions as strong contributors.")
+        st.write("7. Costs by City: Major urban centers in North America and Europe display significant cost volumes, with prominent clusters in leading cities.")
+        st.write("8. Costs by Month: Costs peaked in December with \$284.51K, followed by a high in April (\$276.13K). A sharp decline occurred in March (\$6.3K), with a steady recovery seen in the following months.")
+        
+        st.markdown("**Report 4**")
+        st.image("Elecronic_Sales/Sales_Analysis.png")
+        st.write("1. Sales by Brand: Contoso leads with the highest sales of \$204.26K, followed by Fabrikam (\$165.48K) and Litware (\$127.16K). Brands like Adventure Works (\$99.37K) and Proseware (\$77.92K) also made notable contributions.")
+        st.write("2. Sales by Category: Home Appliances account for the largest sales at \$355.49K. Other significant categories include Computers (\$201.01K) and Cameras and Accessories (\$148.92K).")
+        st.write("3. Sales by Subcategory: Washers and Dryers dominate with sales of \$126.82K, followed by Camcorders (\$77.51K) and Projectors and Screens (\$77.35K). Other high-performing subcategories include Refrigerators (\$54.77K) and Home Theaters ($50.61K).")
+        st.write("4. Sales by Color: White products achieved the highest sales of \$185.15K, closely followed by Black (\$179.84K) and Silver (\$161.59K). Other notable colors include Blue (\$84.1K) and Grey (\$82.66K).")
+        st.write("5. Sales by Country: The report highlights significant sales in North America, Europe, and Australia.")
+        st.write("6. Sales by State: Dense clusters of sales were observed in various states within North America and Europe.")
+        st.write("7. Sales by City: Major cities across North America and Europe contributed significantly to the overall sales performance.")
+        st.write("8. Sales by Month: Sales peaked in December at \$690.8K, followed by April (\$672.58K). A noticeable dip occurred in March (\$42.03K), with steady recovery in subsequent months.")
+        
+        st.markdown("**Report 5**")
+        st.image("Elecronic_Sales/Conclusion_Report.png")
+        st.write("1. Top 5 and Least 5 Brands Sold:")
+        st.write("Top 5 Brands:")
+        st.write("Contoso: The top-performing brand with 204.26K sales, contributing 30.3% of total sales.")
+        st.write("Fabrikam: Second highest with 165.48K sales (24.54%). he remaining brands in the top 5 (99.3K, 77.92K, and 127.16K sales) contribute a significant portion but trail behind Contoso and Fabrikam.")
+        st.write("Least 5 Brands:")
+        st.write("The Phone: The lowest performer with 6.88K sales (4.46%). Other least-performing brands, such as \"Northwind Traders,\" have sales of 34.73K and 38.15K, indicating areas for improvement.")
+        st.write("2. Sales by Category:")
+        st.write("Home Appliances dominates the sales with 355.49K, making it the most profitable category. Computers (201.01K) and Cameras and Camcorders (148.92K) follow as strong contributors. Games and Toys have the lowest sales (7.06K), indicating low demand or insufficient marketing.")
+        st.write("3. Top 10 and Least 10 Subcategories:")
+        st.write("Top Subcategories:")
+        st.write("Washers: The leading subcategory with 126.82K sales. Camcorders and Projectors are also among the top subcategories, with sales of 77.51K and 77.35K, respectively.")
+        st.write("Least Subcategories:")
+        st.write("Boxes (0.38K) and Cell Phones (0.71K) are the weakest performers. Other subcategories like Fans (6.53K) and Bluetooth Devices (5.09K) indicate room for growth.")
+        st.write("4. Top 10 and Least 10 Products:")
+        st.write("Top Products:")
+        st.write("Products from Fabrikam dominate the top 10, with each product contributing 3.2K sales.")
+        st.write("Least Products:")
+        st.write("Products such as Reusable and SV USBs have extremely low sales, ranging from 0.95K to 2.94K. Some products consistently underperform, suggesting the need for a reassessment of their relevance or promotion.")
+        st.write("5. Top 10 and Least 10 Cities:")
+        st.write("Top Cities:")
+        st.write("Sales are concentrated in the United States, with purple markers showing high-performing cities.")
+        st.write("Least Cities:")
+        st.write("Red markers highlight underperforming cities across North America, Europe, and parts of Australia. These regions may need targeted strategies to increase sales.")
+        st.write("6. Sales by Year:")
+        st.write("Sales peaked in 2020 (1M), but there was a sharp decline to 0.42M in 2021. A consistent sales trend from 2016 to 2019 (~0.7M to ~0.8M) suggests stability before the drop in 2021, possibly due to market changes or external factors like the pandemic.")
+        if st.sidebar.button("Back to Home"):
+            switch_page("home")
+
     def sales_info_page():
         st.markdown("#### Sales Data Analysis")
         st.write("I got this Business mail from 'steven', Steven's email highlights the need to enhance our internet sales reports by transitioning from static formats to visual dashboards. He emphasizes tracking product sales, client data, and performance against the 2024 budget while considering sales trends from the past two years.")
@@ -312,9 +420,13 @@ elif choice == "Experience":
         st.write("\* The 'Map' shows 'customer city' here we can understnd that how many products are selling in which city. but here we understood that there are equal products selling in all the cities.")
         st.write("\* The 'Bar chart' shows top 10 sales by products as mentioned in report 1.")
         st.write("\* The 'Matrix table' shows sales amount by product, that gives information regarding which product sold how much in every months.")
+        st.write("If you are more intrested please hit the below links for more information:")
+        st.markdown(":package: [Sales Data Analysis data](https://github.com/SantoshRottayyanavar/Sales-Data-Analysis)")
+        st.markdown(":moneybag: [Sales Data Analysis Reports](https://app.powerbi.com/groups/me/reports/e9b33f13-9873-4009-abfd-f0102cda2f5a/a84db2e002315c50c000?experience=power-bi)")
+        st.markdown(":bookmark_tabs: [HR Data Analysis Final Report](https://github.com/SantoshRottayyanavar/HR-Data-Analysis/blob/main/HR%20Data%20Analysis%20Final%20Report.pdf)")
         if st.sidebar.button("Back to Home"):  
             switch_page("home") 
-
+       
     def main():
         if st.session_state.page == "home":
             st.markdown("##### Internships")
@@ -351,7 +463,28 @@ elif choice == "Experience":
                     )
                     if clicked > -1:
                         switch_page("hr_info")
-        
+
+        if st.session_state.page == "home":
+            #Details of Practiced Projects
+            st.write("---")
+                #Practiced Project Part
+            st.markdown("###### Company Name: MeriSKILL")
+            st.markdown("""Our vision is to ensure that no student feels inexperienced to apply for a job role by providing immersive job experience through simulations, paving the way for confident and successful career transitions.
+                           We are on a mission to equip students with the invaluable hands-on experience and skills they need to thrive in their chosen careers, even before securing their first professional role. """)
+            st.markdown("Click here to know more about [MeriSKILL](https://meriskill.in/)")
+            st.markdown("###### Project:")
+            
+            image_path = "Elecronic_Sales/Electronics_main page.png"
+            if not os.path.exists(image_path):
+                st.error(f"Image not found at {image_path}")
+            else:
+                clicked = clickable_images([f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
+                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
+                        )
+                if clicked > -1:
+                        switch_page("electronic_info")
+
         if st.session_state.page == "home":
             #Details of Practiced Projects
             st.write("---")
@@ -379,7 +512,10 @@ elif choice == "Experience":
         elif st.session_state.page == "hr_info":
             hr_info_page()  
         elif st.session_state.page == "sales_info":
-            sales_info_page()    
+            sales_info_page()  
+        elif st.session_state.page == "electronic_info":
+            electronic_sales_info()
+              
         
     # Run the app
     if __name__ == "__main__":
@@ -446,5 +582,6 @@ elif choice == "Contact":
                 st.session_state.msg_df = pd.DataFrame(message)
                 st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
                 st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+
 
     
