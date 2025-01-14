@@ -27,24 +27,24 @@ background-color: rgba(0, 0, 0, 0);
 st.markdown(page_bg_image, unsafe_allow_html=True)
 
 #Removing Hamburger/Deploy option in web app
-hamburg_remove = """
-<style>
-.st-emotion-cache-147n6fk.ef3psqc6 {
-   visibility: visible;
-}
-.st-emotion-cache-125megu.ef3psqc5 {
-   visibility: visible;
-}
-.st-emotion-cache-kgpedg.e1dbuyne10 {
-   visibility: visible;
-}
-.stAppHeader.st-emotion-cache-am3w00.e10jh26i0 {
-   visibility: hidden;
-}
+# hamburg_remove = """
+# <style>
+# .st-emotion-cache-147n6fk.ef3psqc6 {
+#    visibility: visible;
+# }
+# .st-emotion-cache-125megu.ef3psqc5 {
+#    visibility: visible;
+# }
+# .st-emotion-cache-kgpedg.e1dbuyne10 {
+#    visibility: visible;
+# }
+# .stAppHeader.st-emotion-cache-am3w00.e10jh26i0 {
+#    visibility: hidden;
+# }
 
-</style>
-"""
-st.markdown(hamburg_remove, unsafe_allow_html=True)
+# </style>
+# """
+# st.markdown(hamburg_remove, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1,2])
 
@@ -427,6 +427,64 @@ elif choice == "Experience":
         if st.sidebar.button("Back to Home"):  
             switch_page("home") 
        
+    def financial_complaints_page():
+        st.markdown("#### **Financial Complaints**")
+        st.markdown("""##### Project Overview:
+        \n This project showcases my expertise in data analysis, visualization, and dashboard design. Using a dataset of over 75,000 financial complaints sourced from an Excel file, I created an interactive dashboard to provide insights into complaint trends, resolution efficiency, and customer satisfaction. The dashboard highlights key metrics and allows users to explore complaint data by category, submission method, and geographic location.""")
+        st.markdown("##### Workflow:")
+        st.markdown("""###### 1. Dataset Exploration:
+        \n The dataset, stored in Excel, included information on financial complaints filed between 2011 and 2020. Key fields included:""")
+        st.markdown("""* Complaint Issues (e.g., billing disputes, mortgage problems).
+        \n * Submission Methods (e.g., web, phone, postal mail).
+        \n * Resolution Outcomes (e.g., resolved at no cost).
+        \n * Geographic Information (state-level data).    
+        \n I explored the dataset in Excel to understand its structure and identify areas requiring data cleaning.""")
+        st.image("Financial Complaints/Financial complaint excel file.png")
+        st.markdown("###### 2. Data Cleaning and Preparation:")
+        st.write("""To ensure the data was analysis-ready, I Excel and Tableau for:
+        \n * Removing duplicate records and null values.
+        \n * Standardizing dates to enable time-series analysis.
+        \n * Creating calculated fields such as "Timely Response Rate" and "Disputed Rate.""")
+        st.markdown("###### 3. Dashboard Design and Visualizations:")
+        st.write("The dashboard was designed in Tableau with the following components:")
+        st.image("Financial Complaints/Financial complaints report.png")  
+        st.markdown("""**KPIs:**
+        \n * Total Complaints: Displays the total number of complaints filed.
+        \n * Timely Response Rate: Measures the percentage of complaints addressed promptly.
+        \n * Resolved at No Cost: Highlights the percentage of complaints resolved without any cost to the customer.
+        \n **Visualizations:**
+        \n * Complaints by Issue: A bar chart showing the frequency of complaints by category.
+        \n * Complaints by Submission Media: A breakdown of submission methods (web, phone, etc.).
+        \n * Complaints by State: A geographic map visualizing complaint volume across U.S. states.
+        \n * Customer Dispute Rate: A donut chart displaying the percentage of complaints disputed by customers.""")
+        st.markdown("""###### 4. Insights Delivered:
+        \n The dashboard provided actionable insights, such as:
+        \n * The most common complaint issues, like "Managing an Account" and "Deposits and Withdrawals."
+        \n * Web as the dominant submission method (50.37% of complaints).
+        \n * California as the state with the highest complaint volume.
+        \n * 98.1% of complaints received a timely response, showcasing efficient customer service.""")
+        st.markdown("""###### Tools and Techniques Used:
+        \n * Excel: For storing and exploring the dataset.
+        \n * Tableau: For dashboard creation.
+        \n * Calculated fileds (Data Analysis Expressions): For creating calculated fields and KPIs.""")
+        st.write("""###### Project Goals:
+        \n The primary objective of this project was to transform raw complaint data into meaningful insights that can drive business decisions. The dashboard is designed to help stakeholders understand trends, identify problem areas, and evaluate customer service performance.""")
+        st.markdown("""###### Key Achievements:
+        \n * Successfully visualized and analyzed over 75,000 complaint records.
+        \n * Improved data quality through efficient cleaning and transformation.
+        \n * Delivered an interactive and user-friendly dashboard that enhances decision-making.""")
+        st.write("If you are more intrested please hit the below links for more information:")
+        st.markdown(":package: [Financial Complaints data](https://github.com/SantoshRottayyanavar/Financial-Complaints/blob/main/Financial%20Consumer%20Complaints.csv)")
+        st.markdown(":moneybag: [Financial Complaints Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/Financecomplaint/Dashboard1)")
+        st
+        if st.sidebar.button("Back to Home"):  
+            switch_page("home") 
+
+    def emrgency_room_page():
+        st.image("Emergency Room/Emergency Room Dashboard.png")  
+        if st.sidebar.button("Back to Home"):
+            switch_page("home")
+
     def main():
         if st.session_state.page == "home":
             st.markdown("##### Internships")
@@ -435,7 +493,7 @@ elif choice == "Experience":
             st.markdown("Click here to know more about [AI Variant](https://aivariant.com/)")
             st.markdown("###### Projects:")
             
-            bank, hr = st.columns(2)
+            bank, empty, hr = st.columns(3)
             
             # Bank project front image and button
             with bank:
@@ -445,8 +503,8 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0", "background-size": "cover"},
-                        img_style={"margin": "5px", "height": "200px"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
                     )
                     if clicked > -1:
                         switch_page("bank_info")
@@ -458,8 +516,8 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
-                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8"},
+                        img_style={"margin": "0px", "height": "200px", "object-fit": "contain"},
                     )
                     if clicked > -1:
                         switch_page("hr_info")
@@ -474,16 +532,18 @@ elif choice == "Experience":
             st.markdown("Click here to know more about [MeriSKILL](https://meriskill.in/)")
             st.markdown("###### Project:")
             
-            image_path = "Elecronic_Sales/Electronics_main page.png"
-            if not os.path.exists(image_path):
-                st.error(f"Image not found at {image_path}")
-            else:
-                clicked = clickable_images([f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
-                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
-                        )
-                if clicked > -1:
-                        switch_page("electronic_info")
+            sales, empty, empty1 = st.columns(3)
+            with sales:
+                image_path = "Elecronic_Sales/Electronics_main page.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images([f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
+                            )
+                    if clicked > -1:
+                            switch_page("electronic_info")
 
         if st.session_state.page == "home":
             #Details of Practiced Projects
@@ -493,7 +553,7 @@ elif choice == "Experience":
             st.markdown("""Throughout my academic and professional journey, I have undertaken several hands-on projects that showcase my expertise in data analysis, visualization, and cloud technologies. These projects demonstrate my ability to apply analytical and technical skills to solve real-world problems, optimize workflows, and drive data-driven decisions.
                                 By leveraging tools like Excel, Power BI, Tableau, Python, SQL, and Statistics, I have delivered impactful solutions in domains such as HR analytics, bank loan analysis, and sales optimization. My work reflects a commitment to quality, innovation, and adaptability to evolving business needs.""")
             
-            a, b =st.columns(2)                
+            a, b, c =st.columns(3)                
             with a:
                 image_path = "Salesimages/PracticedSalesProjects.png"
                 if not os.path.exists(image_path):
@@ -501,12 +561,38 @@ elif choice == "Experience":
                 else:
                     clicked = clickable_images(
                         [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
-                        div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#f0f0f0"},
-                        img_style={"margin": "5px", "height": "200px", "object-fit": "contain"},
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
                     )
                     if clicked > -1:
                         switch_page("sales_info")
-        
+
+            with b:
+                image_path = "Financial Complaints/Financial comlaint main page.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64,{get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
+                    )
+                    if clicked > -1:
+                        switch_page("finance_com_info")
+
+            with c:
+                image_path = "Emergency Room/Emergency room page.png"  
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")      
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64, {get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
+                    )     
+                    if clicked > - 1:
+                        switch_page("emergency_room_info")
+
         elif st.session_state.page == "bank_info":
             bank_info_page()
         elif st.session_state.page == "hr_info":
@@ -514,7 +600,11 @@ elif choice == "Experience":
         elif st.session_state.page == "sales_info":
             sales_info_page()  
         elif st.session_state.page == "electronic_info":
-            electronic_sales_info()
+            electronic_sales_info()    
+        elif st.session_state.page == "finance_com_info":
+            financial_complaints_page()
+        elif st.session_state.page == "emergency_room_info":
+            emrgency_room_page()    
               
         
     # Run the app
@@ -582,6 +672,7 @@ elif choice == "Contact":
                 st.session_state.msg_df = pd.DataFrame(message)
                 st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
                 st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+
 
 
     
