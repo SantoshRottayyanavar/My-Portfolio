@@ -27,24 +27,24 @@ background-color: rgba(0, 0, 0, 0);
 st.markdown(page_bg_image, unsafe_allow_html=True)
 
 #Removing Hamburger/Deploy option in web app
-# hamburg_remove = """
-# <style>
-# .st-emotion-cache-147n6fk.ef3psqc6 {
-#    visibility: visible;
-# }
-# .st-emotion-cache-125megu.ef3psqc5 {
-#    visibility: visible;
-# }
-# .st-emotion-cache-kgpedg.e1dbuyne10 {
-#    visibility: visible;
-# }
-# .stAppHeader.st-emotion-cache-am3w00.e10jh26i0 {
-#    visibility: hidden;
-# }
+hamburg_remove = """
+<style>
+.st-emotion-cache-147n6fk.ef3psqc6 {
+   visibility: visible;
+}
+.st-emotion-cache-125megu.ef3psqc5 {
+   visibility: visible;
+}
+.st-emotion-cache-kgpedg.e1dbuyne10 {
+   visibility: visible;
+}
+.stAppHeader.st-emotion-cache-am3w00.e10jh26i0 {
+   visibility: hidden;
+}
 
-# </style>
-# """
-# st.markdown(hamburg_remove, unsafe_allow_html=True)
+</style>
+"""
+st.markdown(hamburg_remove, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1,2])
 
@@ -420,6 +420,7 @@ elif choice == "Experience":
         st.write("\* The 'Map' shows 'customer city' here we can understnd that how many products are selling in which city. but here we understood that there are equal products selling in all the cities.")
         st.write("\* The 'Bar chart' shows top 10 sales by products as mentioned in report 1.")
         st.write("\* The 'Matrix table' shows sales amount by product, that gives information regarding which product sold how much in every months.")
+        st.write("---")
         st.write("If you are more intrested please hit the below links for more information:")
         st.markdown(":package: [Sales Data Analysis data](https://github.com/SantoshRottayyanavar/Sales-Data-Analysis)")
         st.markdown(":moneybag: [Sales Data Analysis Reports](https://app.powerbi.com/groups/me/reports/e9b33f13-9873-4009-abfd-f0102cda2f5a/a84db2e002315c50c000?experience=power-bi)")
@@ -473,15 +474,85 @@ elif choice == "Experience":
         \n * Successfully visualized and analyzed over 75,000 complaint records.
         \n * Improved data quality through efficient cleaning and transformation.
         \n * Delivered an interactive and user-friendly dashboard that enhances decision-making.""")
+        st.write("---")
         st.write("If you are more intrested please hit the below links for more information:")
-        st.markdown(":package: [Financial Complaints data](https://github.com/SantoshRottayyanavar/Financial-Complaints/blob/main/Financial%20Consumer%20Complaints.csv)")
-        st.markdown(":moneybag: [Financial Complaints Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/Financecomplaint/Dashboard1)")
-        st
+        st.markdown(":heavy_dollar_sign: [Financial Complaints data](https://github.com/SantoshRottayyanavar/Financial-Complaints/blob/main/Financial%20Consumer%20Complaints.csv)")
+        st.markdown(":dollar: [Financial Complaints Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/Financecomplaint/Dashboard1)")
         if st.sidebar.button("Back to Home"):  
             switch_page("home") 
 
     def emrgency_room_page():
-        st.image("Emergency Room/Emergency Room Dashboard.png")  
+        st.markdown("#### **Emergency Room Visits**")
+        st.markdown("""
+        ##### Project Overview:
+        The Emergency Room Visits Dashboard is a comprehensive visualization designed to analyze and present key metrics related to emergency room (ER) visits. 
+        This project provides actionable insights to healthcare administrators, enabling them to optimize resource allocation, improve patient satisfaction, and ensure timely care delivery.
+        """)
+
+        st.markdown("""
+        ###### 1: Data Extraction and Cleaning:
+        - **Source Data**: Provided datasets in Excel format.
+        - **Data Cleaning in Excel**: Removed duplicates, handled missing values, and corrected date format.
+        """)
+        st.image("Emergency Room/Emergency Room Excel Dataset.png", caption="Prepared Excel Dataset")
+
+        st.markdown("""
+        ###### 2: Importing Data into Tableau:
+        Opened Tableau and connected to the prepared Excel file.
+        """)
+        st.image("Emergency Room/Emergency Room Dashboard.png", caption="Tableau Dashboard")
+        st.markdown("""
+        **Key Insights:**
+        1. **Demographics and Patient Distribution**:
+            - **Total Visits**: 9,216 patients visited the ER during the analyzed period.
+            - **Gender Split**:
+                - Male: 51.05%
+                - Female: 48.69%
+                - Non-Conforming: 0.26%
+            - **Age Groups**:
+                - The majority of patients belong to the 19–65 age group, with trends consistent over time. 
+
+        2. **Wait Times and Satisfaction**:
+            - **Average Wait Time**: 35.26 minutes, providing an opportunity to identify and address bottlenecks.
+            - **Patient Satisfaction**: 4.99/10, indicating areas for improving patient experience.
+
+        3. **Race Distribution**:
+            - **Majority**: White (2,571)
+            - **Other Significant Groups**: African American (1,951), Asian (1,060), and Pacific Islander (549).
+
+        4. **Department Utilization**:
+            - **Top Departments**:
+                - General Practice: 1,840 visits
+                - Orthopedics: 995 visits
+                - Cardiology: 248 visits
+            - Specialized areas like Neurology and Renal show lower utilization, highlighting opportunities for improvement.
+
+        5. **Peak Hours and Weekly Trends**:
+            - **Heatmap Analysis**:
+                - High activity observed on Monday and Friday mornings, with peak wait times exceeding 38 minutes.
+                - Weekends show reduced activity and shorter wait times.
+        """)
+
+        st.markdown("""
+        **Tools and Techniques Used:**
+        - **Data Preparation**:
+            - Extracted and cleaned the data using Microsoft Excel to ensure data accuracy and completeness.
+        - **Visualization Development**:
+            - Imported the cleaned dataset into Tableau to design an interactive dashboard using advanced visualization features such as heatmaps, stacked area charts, and bar graphs.
+        - **Analytical Insights**:
+            - Conducted trend analysis on demographics, satisfaction scores, and department performance.
+        """)
+
+        st.markdown("""
+        **Key Achievements:**
+        - Designed a dashboard that enhances decision-making capabilities for hospital management.
+        - Identified operational bottlenecks, such as high wait times during peak hours and low satisfaction scores, offering improvement recommendations.
+        - Provided detailed demographic insights, enabling hospitals to tailor healthcare policies to their patient population.
+        """)
+        st.write("---")
+        st.write("If you are more intrested please hit the below links for more information:")
+        st.markdown(":medical_symbol: [Emergency Room Visits data](https://github.com/SantoshRottayyanavar/Emargency-Room-Visits/blob/main/Hospital%20ER.csv)")
+        st.markdown(":stethoscope: [Emergency Room Visits Dashboard](https://public.tableau.com/app/profile/santosh.rottayyanavar2698/viz/HospitalEmargencyRoom/EmergencyRoomDashboard)")
         if st.sidebar.button("Back to Home"):
             switch_page("home")
 
