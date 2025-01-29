@@ -556,6 +556,11 @@ elif choice == "Experience":
         if st.sidebar.button("Back to Home"):
             switch_page("home")
 
+    def accident_data_page():   
+        st.image("Accident data/report.jpg")
+        if st.sidebar.button("Back to Home"):
+            switch_page("home")
+
     def main():
         if st.session_state.page == "home":
             st.markdown("##### Internships")
@@ -664,6 +669,20 @@ elif choice == "Experience":
                     if clicked > - 1:
                         switch_page("emergency_room_info")
 
+            d,e,f = st.columns(3)
+            with d:
+                image_path = "Accident data/accident main page.jpg"  
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")      
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64, {get_img_as_base64(image_path)}"],
+                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style={"margin": "0px", "height": "200px"},
+                    )     
+                    if clicked > - 1:
+                        switch_page("accident_data_info")
+
         elif st.session_state.page == "bank_info":
             bank_info_page()
         elif st.session_state.page == "hr_info":
@@ -675,7 +694,11 @@ elif choice == "Experience":
         elif st.session_state.page == "finance_com_info":
             financial_complaints_page()
         elif st.session_state.page == "emergency_room_info":
-            emrgency_room_page()    
+            emrgency_room_page()   
+        elif st.session_state.page == "accident_data_info":
+            accident_data_page() 
+
+
               
         
     # Run the app
