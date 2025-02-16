@@ -561,6 +561,11 @@ elif choice == "Experience":
         if st.sidebar.button("Back to Home"):
             switch_page("home")
 
+    def patient_survey_page():
+        st.image("Patient Survey/Patient_survey_dashboard.png")  
+        if st.sidebar.button("Back to Home"):
+            switch_page("home")       
+
     def main():
         if st.session_state.page == "home":
             st.markdown("##### Internships")
@@ -683,6 +688,19 @@ elif choice == "Experience":
                     if clicked > - 1:
                         switch_page("accident_data_info")
 
+            with e:
+                image_path = "Patient Survey/patient_survey_main_image.png"
+                if not os.path.exists(image_path):
+                    st.error(f"Image not found at {image_path}")
+                else:
+                    clicked = clickable_images(
+                        [f"data:image/png;base64, {get_img_as_base64(image_path)}"],
+                        div_style = {"display": "flex", "justify-content": "center", "flex-wrap": "wrap", "background-color": "#B1BED8", "background-size": "cover"},
+                        img_style = {"margin": "0px", "height": "200px"},
+                    )
+                    if clicked > - 1:
+                        switch_page("patient_survey_info")
+
         elif st.session_state.page == "bank_info":
             bank_info_page()
         elif st.session_state.page == "hr_info":
@@ -697,6 +715,8 @@ elif choice == "Experience":
             emrgency_room_page()   
         elif st.session_state.page == "accident_data_info":
             accident_data_page() 
+        elif st.session_state.page == "patient_survey_info":
+            patient_survey_page()
 
 
               
