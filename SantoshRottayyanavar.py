@@ -108,6 +108,8 @@ elif choice == "About":
     st.markdown("### Inspired by the Data and Coding")
     st.text("""Inspired by the Data and coding which can be used to analyse with many functionalities and make better and benificial decisions. experiments and works to make it easier for people to understand the code and use data effectively. primarily uses python to explore the Data and coding.
              
+               
+
                worked at Amer UID Smart Services, Dubai. As Junior Data Analyst over a year of experience explored various facets of data helping the management to make better and efficient decisions.""")
     st.write("---")
 
@@ -556,7 +558,8 @@ elif choice == "Experience":
         if st.sidebar.button("Back to Home"):
             switch_page("home")
 
-    def accident_data_page():   
+    def accident_data_page(): 
+        st.markdown("""#### **Accident Data**""")  
         st.image("Accident data/report.jpg")
         if st.sidebar.button("Back to Home"):
             switch_page("home")
@@ -726,14 +729,14 @@ elif choice == "Experience":
         main()
 
 elif choice == "Resume":
-    with open("Santosh Rottayyanavarmath (Resume).pdf", "rb") as file:
+    with open("Santosh R (Resume).pdf", "rb") as file:
         st.download_button(
             label="Download Resume",
             data=file,
-            file_name="Santosh Rottayyanavarmath (Resume).pdf",
+            file_name="Santosh R (Resume).pdf",
             mime="text/pdf"
         )
-    pdf_viewer("Santosh Rottayyanavarmath (Resume).pdf")
+    pdf_viewer("Santosh R (Resume).pdf")
 
 #contact details section
 elif choice == "Contact":
@@ -761,7 +764,7 @@ elif choice == "Contact":
         st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
 
     if "Message_df" not in st.session_state:
-        st.session_state.Message_df = st.session_state.conn.read(worksheet="Feedback")
+        st.session_state.Message_df = st.session_state.conn.read(worksheet="Portfolio_Feedback")
       
     if "msg_df" not in st.session_state:
        st.session_state.msg_df = pd.DataFrame()
@@ -785,8 +788,6 @@ elif choice == "Contact":
                 
                 st.session_state.msg_df = pd.DataFrame(message)
                 st.session_state.Message_df = pd.concat([st.session_state.Message_df, st.session_state.msg_df], ignore_index = True)
-                st.session_state.conn.update(worksheet="Feedback", data=st.session_state.Message_df)
+                st.session_state.conn.update(worksheet="Portfolio_Feedback", data=st.session_state.Message_df)
 
 
-
-    
